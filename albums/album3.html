@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>صوت الشارع | موسطفى زيان</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="./album.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="../index.html" class="logo-link">
+                <div class="logo">
+                    <span class="logo-text">MUSTAPHA ZYAN</span>
+                    <span class="logo-subtitle">الراي الحديث</span>
+                </div>
+            </a>
+            <ul class="nav-menu">
+                <li><a href="../index.html" class="nav-link">الرئيسية</a></li>
+                <li><a href="../index.html#biography" class="nav-link">السيرة</a></li>
+                <li><a href="../index.html#discography" class="nav-link">الألبومات</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Album Header -->
+    <section class="album-header">
+        <div class="album-header-content">
+            <div class="album-cover-section">
+                <img id="playerCover" src="../covers/album1.jpg" alt="Album Cover" class="album-cover">
+            </div>
+            <div class="album-details-section">
+                <h1 id="playerTitle" class="album-title">صوت الشارع</h1>
+                <p id="playerArtist" class="album-artist">موسطفى زيان</p>
+                <p id="playerYear" class="album-year">2022</p>
+                <p id="playerDescription" class="album-description">الحياة اليومية بألحان الراي الأصيل</p>
+                
+                <!-- Social Suite -->
+                <div class="social-suite">
+                    <a href="https://youtube.com" target="_blank" class="social-icon">
+                        <i class="fab fa-youtube"></i>
+                        <span>YouTube</span>
+                    </a>
+                    <a href="https://instagram.com" target="_blank" class="social-icon">
+                        <i class="fab fa-instagram"></i>
+                        <span>Instagram</span>
+                    </a>
+                    <a href="https://tiktok.com" target="_blank" class="social-icon">
+                        <i class="fab fa-tiktok"></i>
+                        <span>TikTok</span>
+                    </a>
+                    <a href="https://spotify.com" target="_blank" class="social-icon">
+                        <i class="fab fa-spotify"></i>
+                        <span>Spotify</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Visualizer -->
+    <section class="visualizer-section">
+        <canvas id="visualizer"></canvas>
+    </section>
+
+    <!-- Player Controls -->
+    <section class="player-section">
+        <div class="player-controls">
+            <div class="progress-container">
+                <span id="currentTime">0:00</span>
+                <div class="progress-bar" id="progressBar">
+                    <div class="progress-fill" id="progressFill"></div>
+                </div>
+                <span id="duration">0:00</span>
+            </div>
+
+            <div class="control-buttons">
+                <button id="prevBtn" class="control-btn" title="السابق">
+                    <i class="fas fa-step-backward"></i>
+                </button>
+                <button id="playPauseBtn" class="control-btn play-btn" title="تشغيل">
+                    <i class="fas fa-play"></i>
+                </button>
+                <button id="nextBtn" class="control-btn" title="التالي">
+                    <i class="fas fa-step-forward"></i>
+                </button>
+            </div>
+
+            <div class="volume-container">
+                <i class="fas fa-volume-up"></i>
+                <input type="range" id="volumeSlider" min="0" max="1" step="0.1" value="0.8">
+            </div>
+        </div>
+    </section>
+
+    <!-- Playlist -->
+    <section class="playlist-section">
+        <div class="container">
+            <h2>قائمة الأغاني</h2>
+            <div id="songsList" class="songs-list"></div>
+        </div>
+    </section>
+
+    <!-- Audio Element -->
+    <audio id="audioPlayer"></audio>
+
+    <script src="../script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            window.initializeAlbumPlayer('album3');
+        });
+    </script>
+</body>
+</html>

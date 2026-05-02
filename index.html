@@ -3,157 +3,180 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Melody Premium | مشغل الموسيقى الاحترافي</title>
-    <link rel="stylesheet" href="style.css">
-    <!-- Font Awesome for Icons -->
+    <title>Mustapha Zyan | الفنان الراي الحديث</title>
+    <link rel="stylesheet" href="./style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;700&display=swap" rel="stylesheet">
-    <link rel="icon" type="image/png" href="covers/favicon.png">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- Loading Screen -->
-    <div id="loader">
-        <div class="spinner"></div>
-        <p>جاري تحميل التجربة الموسيقية...</p>
-    </div>
-
-    <div class="container">
-        <!-- Sidebar -->
-        <aside class="sidebar">
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
             <div class="logo">
-                <i class="fas fa-music"></i>
-                <span>Melody</span>
+                <span class="logo-text">MUSTAPHA ZYAN</span>
+                <span class="logo-subtitle">الراي الحديث</span>
             </div>
-            <nav>
-                <ul>
-                    <li class="active"><a href="index.html"><i class="fas fa-home"></i> الرئيسية</a></li>
-                    <li><a href="music.html"><i class="fas fa-compact-disc"></i> مكتبتي</a></li>
-                    <li><a href="#"><i class="fas fa-heart"></i> الأغاني المفضلة</a></li>
-                </ul>
-            </nav>
-            <div class="playlist-section">
-                <h3>قائمة التشغيل</h3>
-                <div class="search-box">
-                    <i class="fas fa-search"></i>
-                    <input type="text" id="searchSongs" placeholder="بحث عن أغنية...">
-                </div>
-                <div id="playlist-items" class="playlist-items">
-                    <!-- سيتم تحميل الأغاني هنا بواسطة JavaScript -->
-                </div>
-            </div>
-        </aside>
-
-        <!-- Main Content -->
-        <main class="main-content">
-            <header>
-                <div class="user-profile">
-                    <span>مرحباً، مستخدم بريميوم</span>
-                    <img src="https://ui-avatars.com/api/?name=User&background=1DB954&color=fff" alt="User">
-                </div>
-            </header>
-
-            <section class="hero">
-                <div class="hero-content">
-                    <h1>استمع إلى موسيقاك المفضلة</h1>
-                    <p>تجربة استماع فريدة بتصميم عصري وأداء فائق السرعة.</p>
-                </div>
-            </section>
-
-            <!-- Song Data Section (Editable by user) -->
-            <section class="song-data-container" style="display:none;">
-                <table>
-                    <tbody id="raw-song-data">
-                        <!-- 
-                            لإضافة أغاني جديدة، فقط أضف صفاً جديداً هنا:
-                            <tr>
-                                <td>اسم الأغنية</td>
-                                <td>اسم الملف.mp3</td>
-                                <td>اسم الفنان</td>
-                                <td>اسم غلاف الألبوم.jpg</td>
-                            </tr>
-                        -->
-                        <tr>
-                            <td>أغنية تجريبية 1</td>
-                            <td>trak1.mp3</td>
-                            <td>فنان 1</td>
-                            <td>cover1.jpg</td>
-                        </tr>
-                        <tr>
-                            <td>أغنية تجريبية 2</td>
-                            <td>trak2.mp3</td>
-                            <td>فنان 2</td>
-                            <td>cover2.jpg</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </section>
-
-            <section class="now-playing-large" id="fullPlayer">
-                <button class="close-full-player"><i class="fas fa-chevron-down"></i></button>
-                <div class="album-art-large">
-                    <img id="mainAlbumArt" src="covers/default.jpg" alt="Album Art">
-                    <div class="visualizer-container">
-                        <canvas id="visualizer"></canvas>
-                    </div>
-                </div>
-                <div class="song-info-large">
-                    <h2 id="mainSongTitle">اسم الأغنية</h2>
-                    <p id="mainArtistName">اسم الفنان</p>
-                </div>
-            </section>
-        </main>
-
-        <!-- Player Bar -->
-        <footer class="player-bar">
-            <div class="current-track">
-                <img id="miniAlbumArt" src="covers/default.jpg" alt="Track Art">
-                <div class="track-details">
-                    <h4 id="miniSongTitle">اختر أغنية</h4>
-                    <p id="miniArtistName">الفنان</p>
-                </div>
-                <button class="fav-btn"><i class="far fa-heart"></i></button>
-            </div>
-
-            <div class="player-controls">
-                <div class="control-buttons">
-                    <button id="shuffleBtn" title="تبديل عشوائي"><i class="fas fa-random"></i></button>
-                    <button id="prevBtn"><i class="fas fa-step-backward"></i></button>
-                    <button id="playPauseBtn" class="play-btn"><i class="fas fa-play"></i></button>
-                    <button id="nextBtn"><i class="fas fa-step-forward"></i></button>
-                    <button id="repeatBtn" title="تكرار"><i class="fas fa-redo"></i></button>
-                </div>
-                <div class="progress-container">
-                    <span id="currentTime">0:00</span>
-                    <div class="progress-bar" id="progressArea">
-                        <div class="progress-fill" id="progressBar"></div>
-                    </div>
-                    <span id="duration">0:00</span>
-                </div>
-            </div>
-
-            <div class="extra-controls">
-                <button id="fullscreenBtn" title="شاشة كاملة"><i class="fas fa-expand"></i></button>
-                <div class="volume-control">
-                    <i class="fas fa-volume-up" id="volumeIcon"></i>
-                    <input type="range" id="volumeSlider" min="0" max="1" step="0.1" value="0.8">
-                </div>
-            </div>
-        </footer>
-    </div>
-
-    <!-- Notification Popup -->
-    <div id="notification" class="notification">
-        <div class="notif-content">
-            <img id="notifImg" src="" alt="">
-            <div class="notif-text">
-                <h5 id="notifTitle"></h5>
-                <p id="notifArtist"></p>
+            <ul class="nav-menu">
+                <li><a href="#home" class="nav-link active">الرئيسية</a></li>
+                <li><a href="#biography" class="nav-link">السيرة</a></li>
+                <li><a href="#discography" class="nav-link">الألبومات</a></li>
+                <li><a href="#contact" class="nav-link">التواصل</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
             </div>
         </div>
-    </div>
+    </nav>
 
-    <audio id="mainAudio" src=""></audio>
-    <script src="script.js"></script>
+    <!-- Hero Section with Parallax -->
+    <section id="home" class="hero">
+        <div class="parallax-bg" style="background-image: url('./artist/background.jpg')"></div>
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1 class="hero-title">MUSTAPHA ZYAN</h1>
+                <p class="hero-subtitle">الصوت الحديث للراي الكلاسيكي</p>
+                <div class="hero-cta">
+                    <a href="#discography" class="btn btn-primary">استكشف الألبومات</a>
+                    <a href="#contact" class="btn btn-secondary">تابعني</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <img src="./artist/artist.jpg" alt="Mustapha Zyan" class="artist-image">
+            </div>
+        </div>
+    </section>
+
+    <!-- Biography Section -->
+    <section id="biography" class="biography">
+        <div class="container">
+            <h2 class="section-title">من هو موسطفى زيان؟</h2>
+            <div class="bio-content">
+                <div class="bio-text">
+                    <p>موسطفى زيان هو فنان راي حديث يجمع بين التقاليد الكلاسيكية والصوت المعاصر. بدأ مسيرته الفنية في قلب الثقافة الموسيقية الشمال أفريقية، ليصبح أحد أبرز الأصوات في مشهد الراي العالمي.</p>
+                    <p>من خلال ألبوماته المتعددة، يقدم موسطفى تجربة موسيقية فريدة تعكس الروح الشرقية بأسلوب عصري يخاطب جيل اليوم.</p>
+                    <div class="bio-stats">
+                        <div class="stat">
+                            <h3>15+</h3>
+                            <p>سنة في الفن</p>
+                        </div>
+                        <div class="stat">
+                            <h3>8</h3>
+                            <p>ألبومات</p>
+                        </div>
+                        <div class="stat">
+                            <h3>1M+</h3>
+                            <p>متابع</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="bio-image">
+                    <img src="./artist/artist.jpg" alt="Mustapha Zyan">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Discography Section with 3D Cards -->
+    <section id="discography" class="discography">
+        <div class="container">
+            <h2 class="section-title">الألبومات</h2>
+            <div class="albums-grid">
+                <!-- Album 1 -->
+                <div class="album-card" onclick="window.location.href='./albums/album1.html'">
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <img src="./covers/album1.jpg" alt="Album 1">
+                            <div class="album-info">
+                                <h3>نداء الروح</h3>
+                                <p>2024</p>
+                            </div>
+                        </div>
+                        <div class="card-back">
+                            <div class="back-content">
+                                <h3>نداء الروح</h3>
+                                <p>ألبوم حديث يجمع بين الأصالة والحداثة</p>
+                                <span class="play-icon"><i class="fas fa-play"></i></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Album 2 -->
+                <div class="album-card" onclick="window.location.href='./albums/album2.html'">
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <img src="./covers/album1.jpg" alt="Album 2">
+                            <div class="album-info">
+                                <h3>ليالي الذكريات</h3>
+                                <p>2023</p>
+                            </div>
+                        </div>
+                        <div class="card-back">
+                            <div class="back-content">
+                                <h3>ليالي الذكريات</h3>
+                                <p>رحلة عاطفية عبر الزمن والموسيقى</p>
+                                <span class="play-icon"><i class="fas fa-play"></i></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Album 3 -->
+                <div class="album-card" onclick="window.location.href='./albums/album3.html'">
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <img src="./covers/album1.jpg" alt="Album 3">
+                            <div class="album-info">
+                                <h3>صوت الشارع</h3>
+                                <p>2022</p>
+                            </div>
+                        </div>
+                        <div class="card-back">
+                            <div class="back-content">
+                                <h3>صوت الشارع</h3>
+                                <p>الحياة اليومية بألحان الراي الأصيل</p>
+                                <span class="play-icon"><i class="fas fa-play"></i></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">تابعني على</h2>
+            <div class="social-links">
+                <a href="https://youtube.com" class="social-btn" target="_blank">
+                    <i class="fab fa-youtube"></i>
+                    <span>YouTube</span>
+                </a>
+                <a href="https://instagram.com" class="social-btn" target="_blank">
+                    <i class="fab fa-instagram"></i>
+                    <span>Instagram</span>
+                </a>
+                <a href="https://tiktok.com" class="social-btn" target="_blank">
+                    <i class="fab fa-tiktok"></i>
+                    <span>TikTok</span>
+                </a>
+                <a href="https://spotify.com" class="social-btn" target="_blank">
+                    <i class="fab fa-spotify"></i>
+                    <span>Spotify</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2024 Mustapha Zyan. جميع الحقوق محفوظة.</p>
+    </footer>
+
+    <script src="./script.js"></script>
 </body>
 </html>
