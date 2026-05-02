@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Melody Premium | مشغل الموسيقى الاحترافي</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="covers/favicon.png">
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div id="loader">
+        <div class="spinner"></div>
+        <p>جاري تحميل التجربة الموسيقية...</p>
+    </div>
+
+    <div class="container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="logo">
+                <i class="fas fa-music"></i>
+                <span>Melody</span>
+            </div>
+            <nav>
+                <ul>
+                    <li class="active"><a href="index.html"><i class="fas fa-home"></i> الرئيسية</a></li>
+                    <li><a href="music.html"><i class="fas fa-compact-disc"></i> مكتبتي</a></li>
+                    <li><a href="#"><i class="fas fa-heart"></i> الأغاني المفضلة</a></li>
+                </ul>
+            </nav>
+            <div class="playlist-section">
+                <h3>قائمة التشغيل</h3>
+                <div class="search-box">
+                    <i class="fas fa-search"></i>
+                    <input type="text" id="searchSongs" placeholder="بحث عن أغنية...">
+                </div>
+                <div id="playlist-items" class="playlist-items">
+                    <!-- سيتم تحميل الأغاني هنا بواسطة JavaScript -->
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <header>
+                <div class="user-profile">
+                    <span>مرحباً، مستخدم بريميوم</span>
+                    <img src="https://ui-avatars.com/api/?name=User&background=1DB954&color=fff" alt="User">
+                </div>
+            </header>
+
+            <section class="hero">
+                <div class="hero-content">
+                    <h1>استمع إلى موسيقاك المفضلة</h1>
+                    <p>تجربة استماع فريدة بتصميم عصري وأداء فائق السرعة.</p>
+                </div>
+            </section>
+
+            <!-- Song Data Section (Editable by user) -->
+            <section class="song-data-container" style="display:none;">
+                <table>
+                    <tbody id="raw-song-data">
+                        <!-- 
+                            لإضافة أغاني جديدة، فقط أضف صفاً جديداً هنا:
+                            <tr>
+                                <td>اسم الأغنية</td>
+                                <td>اسم الملف.mp3</td>
+                                <td>اسم الفنان</td>
+                                <td>اسم غلاف الألبوم.jpg</td>
+                            </tr>
+                        -->
+                        <tr>
+                            <td>أغنية تجريبية 1</td>
+                            <td>trak1.mp3</td>
+                            <td>فنان 1</td>
+                            <td>cover1.jpg</td>
+                        </tr>
+                        <tr>
+                            <td>أغنية تجريبية 2</td>
+                            <td>trak2.mp3</td>
+                            <td>فنان 2</td>
+                            <td>cover2.jpg</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <section class="now-playing-large" id="fullPlayer">
+                <button class="close-full-player"><i class="fas fa-chevron-down"></i></button>
+                <div class="album-art-large">
+                    <img id="mainAlbumArt" src="covers/default.jpg" alt="Album Art">
+                    <div class="visualizer-container">
+                        <canvas id="visualizer"></canvas>
+                    </div>
+                </div>
+                <div class="song-info-large">
+                    <h2 id="mainSongTitle">اسم الأغنية</h2>
+                    <p id="mainArtistName">اسم الفنان</p>
+                </div>
+            </section>
+        </main>
+
+        <!-- Player Bar -->
+        <footer class="player-bar">
+            <div class="current-track">
+                <img id="miniAlbumArt" src="covers/default.jpg" alt="Track Art">
+                <div class="track-details">
+                    <h4 id="miniSongTitle">اختر أغنية</h4>
+                    <p id="miniArtistName">الفنان</p>
+                </div>
+                <button class="fav-btn"><i class="far fa-heart"></i></button>
+            </div>
+
+            <div class="player-controls">
+                <div class="control-buttons">
+                    <button id="shuffleBtn" title="تبديل عشوائي"><i class="fas fa-random"></i></button>
+                    <button id="prevBtn"><i class="fas fa-step-backward"></i></button>
+                    <button id="playPauseBtn" class="play-btn"><i class="fas fa-play"></i></button>
+                    <button id="nextBtn"><i class="fas fa-step-forward"></i></button>
+                    <button id="repeatBtn" title="تكرار"><i class="fas fa-redo"></i></button>
+                </div>
+                <div class="progress-container">
+                    <span id="currentTime">0:00</span>
+                    <div class="progress-bar" id="progressArea">
+                        <div class="progress-fill" id="progressBar"></div>
+                    </div>
+                    <span id="duration">0:00</span>
+                </div>
+            </div>
+
+            <div class="extra-controls">
+                <button id="fullscreenBtn" title="شاشة كاملة"><i class="fas fa-expand"></i></button>
+                <div class="volume-control">
+                    <i class="fas fa-volume-up" id="volumeIcon"></i>
+                    <input type="range" id="volumeSlider" min="0" max="1" step="0.1" value="0.8">
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Notification Popup -->
+    <div id="notification" class="notification">
+        <div class="notif-content">
+            <img id="notifImg" src="" alt="">
+            <div class="notif-text">
+                <h5 id="notifTitle"></h5>
+                <p id="notifArtist"></p>
+            </div>
+        </div>
+    </div>
+
+    <audio id="mainAudio" src=""></audio>
+    <script src="script.js"></script>
+</body>
+</html>
