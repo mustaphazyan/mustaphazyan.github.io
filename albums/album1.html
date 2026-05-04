@@ -3,11 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="نداء الروح - موسطفى زيان">
     <title>نداء الروح | موسطفى زيان</title>
+    <!-- Preload Critical Resources -->
+    <link rel="preload" href="../style.css" as="style">
+    <link rel="preload" href="./album.css" as="style">
+    <link rel="preload" href="../script.js" as="script">
+    <link rel="preload" href="../artist/artist.jpg" as="image">
+    <!-- Prefetch DNS -->
+    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <!-- Critical CSS -->
     <link rel="stylesheet" href="../style.css">
     <link rel="stylesheet" href="./album.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Async Font Loading -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome (Async) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
 </head>
 <body>
     <!-- Navigation with Language Switcher -->
@@ -43,7 +57,7 @@
             <!-- Left: Artist Image -->
             <div class="header-left">
                 <div class="artist-image-wrapper">
-                    <img src="../artist/artist.jpg" alt="Mustapha Zyan" class="artist-image-large">
+                    <img src="../artist/artist.jpg" alt="Mustapha Zyan" class="artist-image-large" loading="lazy">
                     <div class="image-border"></div>
                 </div>
             </div>
@@ -113,7 +127,7 @@
             <!-- Now Playing Info -->
             <div class="now-playing-info">
                 <div class="now-playing-cover">
-                    <img id="playerCover" src="../covers/album1.jpg" alt="Album Cover">
+                    <img id="playerCover" src="../covers/album1.jpg" alt="Album Cover" loading="lazy">
                 </div>
                 <div class="now-playing-text">
                     <p class="now-playing-title" id="nowPlayingTitle">الأغنية الأولى</p>
@@ -154,7 +168,7 @@
     <!-- Audio Element -->
     <audio id="audioPlayer"></audio>
 
-    <script src="../script.js"></script>
+    <script src="../script.js" defer></script>
     <script>
         // Initialize album player on page load
         document.addEventListener('DOMContentLoaded', () => {

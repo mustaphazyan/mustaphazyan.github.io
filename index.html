@@ -3,10 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Mustapha Zyan - الفنان الراي الحديث">
+    <meta name="theme-color" content="#050505">
     <title>Mustapha Zyan | الفنان الراي الحديث</title>
+    <!-- Preload Critical Resources -->
+    <link rel="preload" href="./style.css" as="style">
+    <link rel="preload" href="./script.js" as="script">
+    <link rel="preload" href="./artist/artist.jpg" as="image">
+    <!-- Prefetch DNS for External Resources -->
+    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <!-- Critical CSS -->
     <link rel="stylesheet" href="./style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Async Font Loading -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome (Async) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
 </head>
 <body>
     <!-- Navigation -->
@@ -49,7 +63,7 @@
                 </div>
             </div>
             <div class="hero-image">
-                <img src="./artist/artist.jpg" alt="Mustapha Zyan" class="artist-image">
+                <img src="./artist/artist.jpg" alt="Mustapha Zyan" class="artist-image" loading="lazy">
             </div>
         </div>
     </section>
@@ -78,7 +92,7 @@
                     </div>
                 </div>
                 <div class="bio-image">
-                    <img src="./artist/artist.jpg" alt="Mustapha Zyan">
+                    <img src="./artist/artist.jpg" alt="Mustapha Zyan" loading="lazy">
                 </div>
             </div>
         </div>
@@ -93,7 +107,7 @@
                 <div class="album-card" onclick="window.location.href='./albums/album1.html'">
                     <div class="card-inner">
                         <div class="card-front">
-                            <img src="./covers/album1.jpg" alt="Album 1">
+                            <img src="./covers/album1.jpg" alt="Album 1" loading="lazy">
                             <div class="album-info">
                                 <h3>نداء الروح</h3>
                                 <p>2024</p>
@@ -113,7 +127,7 @@
                 <div class="album-card" onclick="window.location.href='./albums/album2.html'">
                     <div class="card-inner">
                         <div class="card-front">
-                            <img src="./covers/album1.jpg" alt="Album 2">
+                            <img src="./covers/album1.jpg" alt="Album 2" loading="lazy">
                             <div class="album-info">
                                 <h3>ليالي الذكريات</h3>
                                 <p>2023</p>
@@ -133,7 +147,7 @@
                 <div class="album-card" onclick="window.location.href='./albums/album3.html'">
                     <div class="card-inner">
                         <div class="card-front">
-                            <img src="./covers/album1.jpg" alt="Album 3">
+                            <img src="./covers/album1.jpg" alt="Album 3" loading="lazy">
                             <div class="album-info">
                                 <h3>صوت الشارع</h3>
                                 <p>2022</p>
@@ -182,6 +196,7 @@
         <p>&copy; 2024 Mustapha Zyan. جميع الحقوق محفوظة.</p>
     </footer>
 
-    <script src="./script.js"></script>
+    <!-- Defer non-critical JavaScript -->
+    <script src="./script.js" defer></script>
 </body>
 </html>

@@ -29,6 +29,13 @@ body {
     color: var(--text-primary);
     overflow-x: hidden;
     line-height: 1.6;
+    will-change: scroll-position;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
 }
 
 .container {

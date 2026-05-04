@@ -144,6 +144,19 @@ function updatePageLanguage() {
     window.dispatchEvent(new CustomEvent('languageChanged', { detail: { language: currentLanguage } }));
 }
 
+// ===== Performance Optimization: Debounce Function =====
+function debounce(func, wait) {
+    let timeout;
+    return function executedFunction(...args) {
+        const later = () => {
+            clearTimeout(timeout);
+            func(...args);
+        };
+        clearTimeout(timeout);
+        timeout = setTimeout(later, wait);
+    };
+}
+
 // ===== Navigation & Scroll Effects =====
 document.addEventListener('DOMContentLoaded', () => {
     // Set initial language
@@ -153,8 +166,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const navLinks = document.querySelectorAll('.nav-link');
     const sections = document.querySelectorAll('section');
 
-    // Update active nav link on scroll
-    window.addEventListener('scroll', () => {
+    // Update active nav link on scroll (debounced for performance)
+    const handleScroll = debounce(() => {
         let current = '';
         sections.forEach(section => {
             const sectionTop = section.offsetTop;
@@ -170,12 +183,16 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
 
-        // Parallax effect
+        // Parallax effect (using requestAnimationFrame for smooth performance)
         const parallaxBg = document.querySelector('.parallax-bg');
         if (parallaxBg) {
-            parallaxBg.style.backgroundPosition = `center ${window.scrollY * 0.5}px`;
+            requestAnimationFrame(() => {
+                parallaxBg.style.backgroundPosition = `center ${window.scrollY * 0.5}px`;
+            });
         }
-    });
+    }, 100);
+    
+    window.addEventListener('scroll', handleScroll, { passive: true });
 
     // Smooth scroll for nav links
     navLinks.forEach(link => {
@@ -189,6 +206,15 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 });
+
+// ===== Performance: Cache DOM Elements =====
+const domCache = {};
+function getCachedElement(selector) {
+    if (!domCache[selector]) {
+        domCache[selector] = document.querySelector(selector);
+    }
+    return domCache[selector];
+}
 
 // ===== Album Player Data Structure (Enhanced) =====
 const albumsData = {
