@@ -1,50 +1,38 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="en" dir="ltr">
 <head>
-    <meta name="description" content="ليالي الذكريات - موسطفى زيان">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ليالي الذكريات | موسطفى زيان</title>
-    <!-- Preload Critical Resources -->
+    <meta name="description" content="Nights of Memory - Mustapha Zyan">
+    <title>Nights of Memory | Mustapha Zyan</title>
     <link rel="preload" href="../style.css" as="style">
     <link rel="preload" href="./album.css" as="style">
     <link rel="preload" href="../script.js" as="script">
     <link rel="preload" href="../artist/artist.jpg" as="image">
-    <!-- Prefetch DNS -->
     <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
     <link rel="dns-prefetch" href="https://fonts.googleapis.com">
-    <!-- Critical CSS -->
     <link rel="stylesheet" href="../style.css">
     <link rel="stylesheet" href="./album.css">
-    <!-- Async Font Loading -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900<link rel="stylesheet" href="./album.css">family=Lato:wght@300;400;700<link rel="stylesheet" href="./album.css">display=swap" rel="stylesheet">
-    <!-- Font Awesome (Async) -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
 </head>
 <body>
-    <!-- Navigation with Language Switcher -->
     <nav class="navbar">
         <div class="nav-container">
             <a href="../index.html" class="logo-link">
                 <div class="logo">
                     <span class="logo-text">MUSTAPHA ZYAN</span>
-                    <span class="logo-subtitle">الراي الحديث</span>
+                    <span class="logo-subtitle">Modern Rai</span>
                 </div>
             </a>
             <ul class="nav-menu">
-                <li><a href="../index.html" class="nav-link">الرئيسية</a></li>
-                <li><a href="../index.html#biography" class="nav-link">السيرة</a></li>
-                <li><a href="../index.html#discography" class="nav-link">الألبومات</a></li>
+                <li><a href="../index.html" class="nav-link">Home</a></li>
+                <li><a href="../index.html#biography" class="nav-link">Biography</a></li>
+                <li><a href="../index.html#discography" class="nav-link">Albums</a></li>
+                <li><a href="../integrated-player.html" class="nav-link">Player</a></li>
             </ul>
-            <div class="language-switcher">
-                <button class="lang-btn active" onclick="changeLanguage('ar')">العربية</button>
-                <button class="lang-btn" onclick="changeLanguage('en')">English</button>
-                <button class="lang-btn" onclick="changeLanguage('fr')">Français</button>
-            </div>
             <div class="hamburger">
                 <span></span>
                 <span></span>
@@ -53,91 +41,64 @@
         </div>
     </nav>
 
-    <!-- Premium Album Header Section -->
     <section class="album-header-premium">
         <div class="header-container">
-            <!-- Left: Artist Image -->
             <div class="header-left">
                 <div class="artist-image-wrapper">
-                    <img src="../artist/artist.jpg" alt="Mustapha Zyan" class="artist-image-large">
+                    <img src="../artist/artist.jpg" alt="Mustapha Zyan" class="artist-image-large" loading="lazy">
                     <div class="image-border"></div>
                 </div>
             </div>
-
-            <!-- Right: Album Details -->
             <div class="header-right">
                 <div class="album-meta">
-                    <p class="album-year" id="albumYear">2023</p>
-                    <h1 class="album-title-main" id="albumTitle">ليالي الذكريات</h1>
-                    <p class="artist-name-large" id="artistName">موسطفى زيان</p>
+                    <p class="album-year">2023</p>
+                    <h1 class="album-title-main">Nights of Memory</h1>
+                    <p class="artist-name-large">Mustapha Zyan</p>
                 </div>
-
-                <p class="album-bio" id="albumDescription">رحلة عاطفية عبر الزمن والموسيقى</p>
-
-                <!-- Social Media Suite -->
+                <p class="album-bio">A soulful exploration of memories and emotions</p>
                 <div class="social-suite-premium">
-                    <a href="https://youtube.com" target="_blank" class="social-btn-premium" title="YouTube">
-                        <i class="fab fa-youtube"></i>
-                        <span>YouTube</span>
-                    </a>
-                    <a href="https://instagram.com" target="_blank" class="social-btn-premium" title="Instagram">
-                        <i class="fab fa-instagram"></i>
-                        <span>Instagram</span>
-                    </a>
-                    <a href="https://tiktok.com" target="_blank" class="social-btn-premium" title="TikTok">
-                        <i class="fab fa-tiktok"></i>
-                        <span>TikTok</span>
-                    </a>
-                    <a href="https://spotify.com" target="_blank" class="social-btn-premium" title="Spotify">
-                        <i class="fab fa-spotify"></i>
-                        <span>Spotify</span>
-                    </a>
+                    <a href="https://youtube.com" target="_blank" class="social-btn-premium"><i class="fab fa-youtube"></i><span>YouTube</span></a>
+                    <a href="https://instagram.com" target="_blank" class="social-btn-premium"><i class="fab fa-instagram"></i><span>Instagram</span></a>
+                    <a href="https://tiktok.com" target="_blank" class="social-btn-premium"><i class="fab fa-tiktok"></i><span>TikTok</span></a>
+                    <a href="https://spotify.com" target="_blank" class="social-btn-premium"><i class="fab fa-spotify"></i><span>Spotify</span></a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Visualizer Section -->
     <section class="visualizer-section">
         <canvas id="visualizer"></canvas>
     </section>
 
-    <!-- Spotify-Style Playlist Section -->
     <section class="playlist-section-spotify">
         <div class="container">
-            <h2 class="playlist-title" id="playlistTitle">قائمة الأغاني</h2>
+            <h2 class="playlist-title">Playlist</h2>
             <div class="songs-table-wrapper">
                 <table class="songs-table">
                     <thead>
                         <tr>
                             <th class="col-number">#</th>
-                            <th class="col-title" id="trackHeader">الأغنية</th>
-                            <th class="col-duration" id="durationHeader">المدة</th>
+                            <th class="col-title">Track</th>
+                            <th class="col-duration">Duration</th>
                         </tr>
                     </thead>
-                    <tbody id="songsList">
-                        <!-- Songs will be populated by JavaScript -->
-                    </tbody>
+                    <tbody id="songsList"></tbody>
                 </table>
             </div>
         </div>
     </section>
 
-    <!-- Sticky Modern Audio Player at Bottom -->
     <section class="sticky-player">
         <div class="player-container">
-            <!-- Now Playing Info -->
             <div class="now-playing-info">
                 <div class="now-playing-cover">
-                    <img id="playerCover" src="../covers/album1.jpg" alt="Album Cover">
+                    <img id="playerCover" src="../covers/album1.jpg" alt="Album Cover" loading="lazy">
                 </div>
                 <div class="now-playing-text">
-                    <p class="now-playing-title" id="nowPlayingTitle">الأغنية الأولى</p>
-                    <p class="now-playing-artist" id="nowPlayingArtist">موسطفى زيان</p>
+                    <p class="now-playing-title" id="nowPlayingTitle">Track 1</p>
+                    <p class="now-playing-artist" id="nowPlayingArtist">Mustapha Zyan</p>
                 </div>
             </div>
-
-            <!-- Progress Bar -->
             <div class="player-progress">
                 <span class="time-current" id="currentTime">0:00</span>
                 <div class="progress-bar-sticky" id="progressBar">
@@ -145,21 +106,11 @@
                 </div>
                 <span class="time-duration" id="duration">0:00</span>
             </div>
-
-            <!-- Control Buttons -->
             <div class="player-controls-sticky">
-                <button class="control-btn-sticky" id="prevBtn" title="السابق">
-                    <i class="fas fa-step-backward"></i>
-                </button>
-                <button class="control-btn-sticky play-btn-sticky" id="playPauseBtn" title="تشغيل">
-                    <i class="fas fa-play"></i>
-                </button>
-                <button class="control-btn-sticky" id="nextBtn" title="التالي">
-                    <i class="fas fa-step-forward"></i>
-                </button>
+                <button class="control-btn-sticky" id="prevBtn"><i class="fas fa-step-backward"></i></button>
+                <button class="control-btn-sticky play-btn-sticky" id="playPauseBtn"><i class="fas fa-play"></i></button>
+                <button class="control-btn-sticky" id="nextBtn"><i class="fas fa-step-forward"></i></button>
             </div>
-
-            <!-- Volume Control -->
             <div class="volume-control-sticky">
                 <i class="fas fa-volume-up"></i>
                 <input type="range" id="volumeSlider" min="0" max="1" step="0.1" value="0.8" class="volume-slider-sticky">
@@ -167,97 +118,62 @@
         </div>
     </section>
 
-    <!-- Audio Element -->
     <audio id="audioPlayer"></audio>
-
     <script src="../script.js" defer></script>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             window.initializeAlbumPlayer('album2');
-            
-            window.addEventListener('languageChanged', () => {
-                updateAlbumPageLanguage();
-            });
+            setupAudioControls();
         });
 
-        function updateAlbumPageLanguage() {
-            const lang = currentLanguage;
-            const album = albumsData.album2;
-            
-            document.getElementById('albumTitle').textContent = getLocalizedTitle(album, 'title');
-            document.getElementById('albumDescription').textContent = getLocalizedTitle(album, 'description');
-            document.getElementById('playlistTitle').textContent = t('player.playlist');
-            document.getElementById('trackHeader').textContent = t('player.track');
-            document.getElementById('durationHeader').textContent = t('player.duration');
-            
-            const songsList = document.getElementById('songsList');
-            songsList.innerHTML = '';
-            album.songs.forEach((song, index) => {
-                const songTitle = lang === 'en' ? song.titleEn : lang === 'fr' ? song.titleFr : song.title;
-                const tr = document.createElement('tr');
-                tr.className = `song-row ${index === currentSongIndex ? 'active' : ''}`;
-                tr.innerHTML = `
-                    <td class="col-number">${index + 1}</td>
-                    <td class="col-title">${songTitle}</td>
-                    <td class="col-duration">${song.duration}</td>
-                `;
-                tr.addEventListener('click', () => {
-                    currentSongIndex = index;
-                    loadSong(index);
-                    play();
-                });
-                songsList.appendChild(tr);
+        function setupAudioControls() {
+            const audioPlayer = document.getElementById('audioPlayer');
+            const playPauseBtn = document.getElementById('playPauseBtn');
+            const prevBtn = document.getElementById('prevBtn');
+            const nextBtn = document.getElementById('nextBtn');
+            const progressBar = document.getElementById('progressBar');
+            const volumeSlider = document.getElementById('volumeSlider');
+
+            playPauseBtn.addEventListener('click', () => {
+                if (audioPlayer.paused) play(); else pause();
             });
-            
-            document.querySelectorAll('.lang-btn').forEach(btn => {
-                btn.classList.remove('active');
+            prevBtn.addEventListener('click', () => {
+                currentSongIndex = (currentSongIndex - 1 + currentAlbum.songs.length) % currentAlbum.songs.length;
+                loadSong(currentSongIndex);
+                play();
             });
-            document.querySelector(`.lang-btn[onclick="changeLanguage('${lang}')"]`).classList.add('active');
+            nextBtn.addEventListener('click', () => {
+                currentSongIndex = (currentSongIndex + 1) % currentAlbum.songs.length;
+                loadSong(currentSongIndex);
+                play();
+            });
+            audioPlayer.addEventListener('timeupdate', () => {
+                const percent = (audioPlayer.currentTime / audioPlayer.duration) * 100;
+                document.getElementById('progressFill').style.width = `${percent}%`;
+                const currentMin = Math.floor(audioPlayer.currentTime / 60);
+                const currentSec = Math.floor(audioPlayer.currentTime % 60);
+                document.getElementById('currentTime').textContent = `${currentMin}:${currentSec < 10 ? '0' : ''}${currentSec}`;
+            });
+            audioPlayer.addEventListener('loadedmetadata', () => {
+                const min = Math.floor(audioPlayer.duration / 60);
+                const sec = Math.floor(audioPlayer.duration % 60);
+                document.getElementById('duration').textContent = `${min}:${sec < 10 ? '0' : ''}${sec}`;
+            });
+            progressBar.addEventListener('click', (e) => {
+                const rect = progressBar.getBoundingClientRect();
+                const percent = (e.clientX - rect.left) / rect.width;
+                audioPlayer.currentTime = percent * audioPlayer.duration;
+            });
+            volumeSlider.addEventListener('input', (e) => {
+                audioPlayer.volume = e.target.value;
+            });
+            audioPlayer.addEventListener('ended', () => nextBtn.click());
+            document.addEventListener('keydown', (e) => {
+                if (e.code === 'Space') { e.preventDefault(); playPauseBtn.click(); }
+                if (e.code === 'ArrowRight') audioPlayer.currentTime += 5;
+                if (e.code === 'ArrowLeft') audioPlayer.currentTime -= 5;
+            });
         }
-
-        const originalUpdatePlayerUI = window.updatePlayerUI;
-        window.updatePlayerUI = function() {
-            const album = currentAlbum;
-            document.getElementById('playerCover').src = album.cover;
-            document.getElementById('albumTitle').textContent = getLocalizedTitle(album, 'title');
-            document.getElementById('artistName').textContent = album.artist;
-            document.getElementById('albumYear').textContent = album.year;
-            document.getElementById('albumDescription').textContent = getLocalizedTitle(album, 'description');
-            document.getElementById('playlistTitle').textContent = t('player.playlist');
-
-            const songsList = document.getElementById('songsList');
-            songsList.innerHTML = '';
-            album.songs.forEach((song, index) => {
-                const songTitle = currentLanguage === 'en' ? song.titleEn : currentLanguage === 'fr' ? song.titleFr : song.title;
-                const tr = document.createElement('tr');
-                tr.className = `song-row ${index === currentSongIndex ? 'active' : ''}`;
-                tr.innerHTML = `
-                    <td class="col-number">${index + 1}</td>
-                    <td class="col-title">${songTitle}</td>
-                    <td class="col-duration">${song.duration}</td>
-                `;
-                tr.addEventListener('click', () => {
-                    currentSongIndex = index;
-                    loadSong(index);
-                    play();
-                });
-                songsList.appendChild(tr);
-            });
-        };
-
-        function updateNowPlayingInfo() {
-            if (!currentAlbum || !currentAlbum.songs[currentSongIndex]) return;
-            const song = currentAlbum.songs[currentSongIndex];
-            const songTitle = currentLanguage === 'en' ? song.titleEn : currentLanguage === 'fr' ? song.titleFr : song.title;
-            document.getElementById('nowPlayingTitle').textContent = songTitle;
-            document.getElementById('nowPlayingArtist').textContent = currentAlbum.artist;
-        }
-
-        const originalLoadSong = window.loadSong;
-        window.loadSong = function(index) {
-            originalLoadSong(index);
-            updateNowPlayingInfo();
-        };
     </script>
 </body>
 </html>

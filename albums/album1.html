@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="en" dir="ltr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="نداء الروح - موسطفى زيان">
-    <title>نداء الروح | موسطفى زيان</title>
+    <meta name="description" content="Soul's Call - Mustapha Zyan">
+    <title>Soul's Call | Mustapha Zyan</title>
     <!-- Preload Critical Resources -->
     <link rel="preload" href="../style.css" as="style">
     <link rel="preload" href="./album.css" as="style">
@@ -30,19 +30,15 @@
             <a href="../index.html" class="logo-link">
                 <div class="logo">
                     <span class="logo-text">MUSTAPHA ZYAN</span>
-                    <span class="logo-subtitle">الراي الحديث</span>
+                    <span class="logo-subtitle">Modern Rai</span>
                 </div>
             </a>
             <ul class="nav-menu">
-                <li><a href="../index.html" class="nav-link">الرئيسية</a></li>
-                <li><a href="../index.html#biography" class="nav-link">السيرة</a></li>
-                <li><a href="../index.html#discography" class="nav-link">الألبومات</a></li>
+                <li><a href="../index.html" class="nav-link">Home</a></li>
+                <li><a href="../index.html#biography" class="nav-link">Biography</a></li>
+                <li><a href="../index.html#discography" class="nav-link">Albums</a></li>
+                <li><a href="../integrated-player.html" class="nav-link">Player</a></li>
             </ul>
-            <div class="language-switcher">
-                <button class="lang-btn active" onclick="changeLanguage('ar')">العربية</button>
-                <button class="lang-btn" onclick="changeLanguage('en')">English</button>
-                <button class="lang-btn" onclick="changeLanguage('fr')">Français</button>
-            </div>
             <div class="hamburger">
                 <span></span>
                 <span></span>
@@ -66,11 +62,11 @@
             <div class="header-right">
                 <div class="album-meta">
                     <p class="album-year" id="albumYear">2024</p>
-                    <h1 class="album-title-main" id="albumTitle">نداء الروح</h1>
-                    <p class="artist-name-large" id="artistName">موسطفى زيان</p>
+                    <h1 class="album-title-main" id="albumTitle">Soul's Call</h1>
+                    <p class="artist-name-large" id="artistName">Mustapha Zyan</p>
                 </div>
 
-                <p class="album-bio" id="albumDescription">ألبوم حديث يجمع بين الأصالة والحداثة في تناغم فريد</p>
+                <p class="album-bio" id="albumDescription">An emotional journey through modern Rai music</p>
 
                 <!-- Social Media Suite -->
                 <div class="social-suite-premium">
@@ -103,14 +99,14 @@
     <!-- Spotify-Style Playlist Section -->
     <section class="playlist-section-spotify">
         <div class="container">
-            <h2 class="playlist-title" id="playlistTitle">قائمة الأغاني</h2>
+            <h2 class="playlist-title" id="playlistTitle">Playlist</h2>
             <div class="songs-table-wrapper">
                 <table class="songs-table">
                     <thead>
                         <tr>
                             <th class="col-number">#</th>
-                            <th class="col-title" id="trackHeader">الأغنية</th>
-                            <th class="col-duration" id="durationHeader">المدة</th>
+                            <th class="col-title" id="trackHeader">Track</th>
+                            <th class="col-duration" id="durationHeader">Duration</th>
                         </tr>
                     </thead>
                     <tbody id="songsList">
@@ -130,8 +126,8 @@
                     <img id="playerCover" src="../covers/album1.jpg" alt="Album Cover" loading="lazy">
                 </div>
                 <div class="now-playing-text">
-                    <p class="now-playing-title" id="nowPlayingTitle">الأغنية الأولى</p>
-                    <p class="now-playing-artist" id="nowPlayingArtist">موسطفى زيان</p>
+                    <p class="now-playing-title" id="nowPlayingTitle">Track 1</p>
+                    <p class="now-playing-artist" id="nowPlayingArtist">Mustapha Zyan</p>
                 </div>
             </div>
 
@@ -146,13 +142,13 @@
 
             <!-- Control Buttons -->
             <div class="player-controls-sticky">
-                <button class="control-btn-sticky" id="prevBtn" title="السابق">
+                <button class="control-btn-sticky" id="prevBtn" title="Previous">
                     <i class="fas fa-step-backward"></i>
                 </button>
-                <button class="control-btn-sticky play-btn-sticky" id="playPauseBtn" title="تشغيل">
+                <button class="control-btn-sticky play-btn-sticky" id="playPauseBtn" title="Play">
                     <i class="fas fa-play"></i>
                 </button>
-                <button class="control-btn-sticky" id="nextBtn" title="التالي">
+                <button class="control-btn-sticky" id="nextBtn" title="Next">
                     <i class="fas fa-step-forward"></i>
                 </button>
             </div>
@@ -173,99 +169,87 @@
         // Initialize album player on page load
         document.addEventListener('DOMContentLoaded', () => {
             window.initializeAlbumPlayer('album1');
-            
-            // Update UI on language change
-            window.addEventListener('languageChanged', () => {
-                updateAlbumPageLanguage();
-            });
+            setupAudioControls();
         });
 
-        // Update album page content based on language
-        function updateAlbumPageLanguage() {
-            const lang = currentLanguage;
-            const album = albumsData.album1;
-            
-            // Update album details
-            document.getElementById('albumTitle').textContent = getLocalizedTitle(album, 'title');
-            document.getElementById('albumDescription').textContent = getLocalizedTitle(album, 'description');
-            document.getElementById('playlistTitle').textContent = t('player.playlist');
-            document.getElementById('trackHeader').textContent = t('player.track');
-            document.getElementById('durationHeader').textContent = t('player.duration');
-            
-            // Re-render songs list with new language
-            const songsList = document.getElementById('songsList');
-            songsList.innerHTML = '';
-            album.songs.forEach((song, index) => {
-                const songTitle = lang === 'en' ? song.titleEn : lang === 'fr' ? song.titleFr : song.title;
-                const tr = document.createElement('tr');
-                tr.className = `song-row ${index === currentSongIndex ? 'active' : ''}`;
-                tr.innerHTML = `
-                    <td class="col-number">${index + 1}</td>
-                    <td class="col-title">${songTitle}</td>
-                    <td class="col-duration">${song.duration}</td>
-                `;
-                tr.addEventListener('click', () => {
-                    currentSongIndex = index;
-                    loadSong(index);
+        // Setup audio controls
+        function setupAudioControls() {
+            const audioPlayer = document.getElementById('audioPlayer');
+            const playPauseBtn = document.getElementById('playPauseBtn');
+            const prevBtn = document.getElementById('prevBtn');
+            const nextBtn = document.getElementById('nextBtn');
+            const progressBar = document.getElementById('progressBar');
+            const volumeSlider = document.getElementById('volumeSlider');
+
+            // Play/Pause
+            playPauseBtn.addEventListener('click', () => {
+                if (audioPlayer.paused) {
                     play();
-                });
-                songsList.appendChild(tr);
+                } else {
+                    pause();
+                }
             });
-            
-            // Update language switcher buttons
-            document.querySelectorAll('.lang-btn').forEach(btn => {
-                btn.classList.remove('active');
+
+            // Previous
+            prevBtn.addEventListener('click', () => {
+                currentSongIndex = (currentSongIndex - 1 + currentAlbum.songs.length) % currentAlbum.songs.length;
+                loadSong(currentSongIndex);
+                play();
             });
-            document.querySelector(`.lang-btn[onclick="changeLanguage('${lang}')"]`).classList.add('active');
+
+            // Next
+            nextBtn.addEventListener('click', () => {
+                currentSongIndex = (currentSongIndex + 1) % currentAlbum.songs.length;
+                loadSong(currentSongIndex);
+                play();
+            });
+
+            // Progress bar
+            audioPlayer.addEventListener('timeupdate', () => {
+                const percent = (audioPlayer.currentTime / audioPlayer.duration) * 100;
+                document.getElementById('progressFill').style.width = `${percent}%`;
+
+                const currentMin = Math.floor(audioPlayer.currentTime / 60);
+                const currentSec = Math.floor(audioPlayer.currentTime % 60);
+                document.getElementById('currentTime').textContent = `${currentMin}:${currentSec < 10 ? '0' : ''}${currentSec}`;
+            });
+
+            audioPlayer.addEventListener('loadedmetadata', () => {
+                const min = Math.floor(audioPlayer.duration / 60);
+                const sec = Math.floor(audioPlayer.duration % 60);
+                document.getElementById('duration').textContent = `${min}:${sec < 10 ? '0' : ''}${sec}`;
+            });
+
+            progressBar.addEventListener('click', (e) => {
+                const rect = progressBar.getBoundingClientRect();
+                const percent = (e.clientX - rect.left) / rect.width;
+                audioPlayer.currentTime = percent * audioPlayer.duration;
+            });
+
+            // Volume control
+            volumeSlider.addEventListener('input', (e) => {
+                audioPlayer.volume = e.target.value;
+            });
+
+            // Auto-play next track
+            audioPlayer.addEventListener('ended', () => {
+                nextBtn.click();
+            });
+
+            // Keyboard shortcuts
+            document.addEventListener('keydown', (e) => {
+                if (e.code === 'Space') {
+                    e.preventDefault();
+                    playPauseBtn.click();
+                }
+                if (e.code === 'ArrowRight') {
+                    audioPlayer.currentTime += 5;
+                }
+                if (e.code === 'ArrowLeft') {
+                    audioPlayer.currentTime -= 5;
+                }
+            });
         }
-
-        // Override the updatePlayerUI to work with new layout
-        const originalUpdatePlayerUI = window.updatePlayerUI;
-        window.updatePlayerUI = function() {
-            const album = currentAlbum;
-            document.getElementById('playerCover').src = album.cover;
-            document.getElementById('albumTitle').textContent = getLocalizedTitle(album, 'title');
-            document.getElementById('artistName').textContent = album.artist;
-            document.getElementById('albumYear').textContent = album.year;
-            document.getElementById('albumDescription').textContent = getLocalizedTitle(album, 'description');
-            document.getElementById('playlistTitle').textContent = t('player.playlist');
-
-            // Render songs list
-            const songsList = document.getElementById('songsList');
-            songsList.innerHTML = '';
-            album.songs.forEach((song, index) => {
-                const songTitle = currentLanguage === 'en' ? song.titleEn : currentLanguage === 'fr' ? song.titleFr : song.title;
-                const tr = document.createElement('tr');
-                tr.className = `song-row ${index === currentSongIndex ? 'active' : ''}`;
-                tr.innerHTML = `
-                    <td class="col-number">${index + 1}</td>
-                    <td class="col-title">${songTitle}</td>
-                    <td class="col-duration">${song.duration}</td>
-                `;
-                tr.addEventListener('click', () => {
-                    currentSongIndex = index;
-                    loadSong(index);
-                    play();
-                });
-                songsList.appendChild(tr);
-            });
-        };
-
-        // Update now playing info when song changes
-        function updateNowPlayingInfo() {
-            if (!currentAlbum || !currentAlbum.songs[currentSongIndex]) return;
-            const song = currentAlbum.songs[currentSongIndex];
-            const songTitle = currentLanguage === 'en' ? song.titleEn : currentLanguage === 'fr' ? song.titleFr : song.title;
-            document.getElementById('nowPlayingTitle').textContent = songTitle;
-            document.getElementById('nowPlayingArtist').textContent = currentAlbum.artist;
-        }
-
-        // Hook into the loadSong function to update now playing
-        const originalLoadSong = window.loadSong;
-        window.loadSong = function(index) {
-            originalLoadSong(index);
-            updateNowPlayingInfo();
-        };
     </script>
 </body>
 </html>

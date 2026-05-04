@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="en" dir="ltr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Mustapha Zyan - الفنان الراي الحديث">
+    <meta name="description" content="Mustapha Zyan - Modern Rai Artist">
     <meta name="theme-color" content="#050505">
-    <title>Mustapha Zyan | الفنان الراي الحديث</title>
+    <title>Mustapha Zyan | Modern Rai Artist</title>
     <!-- Preload Critical Resources -->
     <link rel="preload" href="./style.css" as="style">
     <link rel="preload" href="./script.js" as="script">
@@ -26,22 +26,19 @@
     <!-- Navigation -->
     <nav class="navbar">
         <div class="nav-container">
-            <div class="logo">
-                <span class="logo-text">MUSTAPHA ZYAN</span>
-                <span class="logo-subtitle">الراي الحديث</span>
-            </div>
+            <a href="./index.html" class="logo-link">
+                <div class="logo">
+                    <span class="logo-text">MUSTAPHA ZYAN</span>
+                    <span class="logo-subtitle">Modern Rai</span>
+                </div>
+            </a>
             <ul class="nav-menu">
-                <li><a href="#home" class="nav-link active" data-i18n="nav.home">الرئيسية</a></li>
-                <li><a href="#biography" class="nav-link" data-i18n="nav.biography">السيرة</a></li>
-                <li><a href="#discography" class="nav-link" data-i18n="nav.discography">الألبومات</a></li>
-                <li><a href="./integrated-player.html" class="nav-link" data-i18n="nav.player">المشغل المدمج</a></li>
-                <li><a href="#contact" class="nav-link" data-i18n="nav.contact">التواصل</a></li>
+                <li><a href="#home" class="nav-link active">Home</a></li>
+                <li><a href="#biography" class="nav-link">Biography</a></li>
+                <li><a href="#discography" class="nav-link">Albums</a></li>
+                <li><a href="./integrated-player.html" class="nav-link">Player</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
             </ul>
-            <div class="language-switcher">
-                <button class="lang-btn active" onclick="changeLanguage('ar')">العربية</button>
-                <button class="lang-btn" onclick="changeLanguage('en')">English</button>
-                <button class="lang-btn" onclick="changeLanguage('fr')">Français</button>
-            </div>
             <div class="hamburger">
                 <span></span>
                 <span></span>
@@ -50,17 +47,16 @@
         </div>
     </nav>
 
-    <!-- Hero Section with Parallax -->
+    <!-- Hero Section -->
     <section id="home" class="hero">
-        <div class="parallax-bg" style="background-image: url('./artist/background.jpg')"></div>
-        <div class="hero-overlay"></div>
-        <div class="hero-content">
-            <div class="hero-text">
+        <div class="hero-container">
+            <div class="hero-content">
                 <h1 class="hero-title">MUSTAPHA ZYAN</h1>
-                <p class="hero-subtitle">الصوت الحديث للراي الكلاسيكي</p>
-                <div class="hero-cta">
-                    <a href="#discography" class="btn btn-primary">استكشف الألبومات</a>
-                    <a href="#contact" class="btn btn-secondary">تابعني</a>
+                <p class="hero-subtitle">The Modern Voice of Classic Rai</p>
+                <p class="hero-description">Experience the fusion of traditional Moroccan Rai with contemporary sound</p>
+                <div class="hero-buttons">
+                    <a href="#discography" class="btn btn-primary">Explore Albums</a>
+                    <a href="#contact" class="btn btn-secondary">Follow Me</a>
                 </div>
             </div>
             <div class="hero-image">
@@ -72,23 +68,27 @@
     <!-- Biography Section -->
     <section id="biography" class="biography">
         <div class="container">
-            <h2 class="section-title">من هو موسطفى زيان؟</h2>
             <div class="bio-content">
                 <div class="bio-text">
-                    <p>موسطفى زيان هو فنان راي حديث يجمع بين التقاليد الكلاسيكية والصوت المعاصر. بدأ مسيرته الفنية في قلب الثقافة الموسيقية الشمال أفريقية، ليصبح أحد أبرز الأصوات في مشهد الراي العالمي.</p>
-                    <p>من خلال ألبوماته المتعددة، يقدم موسطفى تجربة موسيقية فريدة تعكس الروح الشرقية بأسلوب عصري يخاطب جيل اليوم.</p>
+                    <h2 class="section-title">About Mustapha Zyan</h2>
+                    <p class="bio-paragraph">
+                        Mustapha Zyan is a contemporary Rai artist who masterfully blends classical Moroccan traditions with modern musical elements. His unique sound has captivated audiences across the globe.
+                    </p>
+                    <p class="bio-paragraph">
+                        Through his multiple albums, Mustapha offers a distinctive musical experience that reflects the richness of Eastern culture while embracing modern production techniques.
+                    </p>
                     <div class="bio-stats">
                         <div class="stat">
                             <h3>15+</h3>
-                            <p>سنة في الفن</p>
+                            <p>Years in Music</p>
                         </div>
                         <div class="stat">
-                            <h3>8</h3>
-                            <p>ألبومات</p>
+                            <h3>10</h3>
+                            <p>Albums Released</p>
                         </div>
                         <div class="stat">
                             <h3>1M+</h3>
-                            <p>متابع</p>
+                            <p>Followers</p>
                         </div>
                     </div>
                 </div>
@@ -99,27 +99,24 @@
         </div>
     </section>
 
-    <!-- Discography Section with 3D Cards -->
+    <!-- Discography Section -->
     <section id="discography" class="discography">
         <div class="container">
-            <h2 class="section-title">الألبومات</h2>
+            <h2 class="section-title">Albums</h2>
             <div class="albums-grid">
                 <!-- Album 1 -->
                 <div class="album-card" onclick="window.location.href='./albums/album1.html'">
                     <div class="card-inner">
                         <div class="card-front">
-                            <img src="./covers/album1.jpg" alt="Album 1" loading="lazy">
+                            <img src="./covers/album1.jpg" alt="Soul's Call" loading="lazy">
                             <div class="album-info">
-                                <h3>نداء الروح</h3>
+                                <h3>Soul's Call</h3>
                                 <p>2024</p>
                             </div>
                         </div>
                         <div class="card-back">
-                            <div class="back-content">
-                                <h3>نداء الروح</h3>
-                                <p>ألبوم حديث يجمع بين الأصالة والحداثة</p>
-                                <span class="play-icon"><i class="fas fa-play"></i></span>
-                            </div>
+                            <p>An emotional journey through modern Rai music</p>
+                            <a href="./albums/album1.html" class="card-link">Listen Now</a>
                         </div>
                     </div>
                 </div>
@@ -128,18 +125,15 @@
                 <div class="album-card" onclick="window.location.href='./albums/album2.html'">
                     <div class="card-inner">
                         <div class="card-front">
-                            <img src="./covers/album1.jpg" alt="Album 2" loading="lazy">
+                            <img src="./covers/album1.jpg" alt="Nights of Memory" loading="lazy">
                             <div class="album-info">
-                                <h3>ليالي الذكريات</h3>
+                                <h3>Nights of Memory</h3>
                                 <p>2023</p>
                             </div>
                         </div>
                         <div class="card-back">
-                            <div class="back-content">
-                                <h3>ليالي الذكريات</h3>
-                                <p>رحلة عاطفية عبر الزمن والموسيقى</p>
-                                <span class="play-icon"><i class="fas fa-play"></i></span>
-                            </div>
+                            <p>A soulful exploration of memories and emotions</p>
+                            <a href="./albums/album2.html" class="card-link">Listen Now</a>
                         </div>
                     </div>
                 </div>
@@ -148,18 +142,15 @@
                 <div class="album-card" onclick="window.location.href='./albums/album3.html'">
                     <div class="card-inner">
                         <div class="card-front">
-                            <img src="./covers/album1.jpg" alt="Album 3" loading="lazy">
+                            <img src="./covers/album1.jpg" alt="Street Voice" loading="lazy">
                             <div class="album-info">
-                                <h3>صوت الشارع</h3>
+                                <h3>Street Voice</h3>
                                 <p>2022</p>
                             </div>
                         </div>
                         <div class="card-back">
-                            <div class="back-content">
-                                <h3>صوت الشارع</h3>
-                                <p>الحياة اليومية بألحان الراي الأصيل</p>
-                                <span class="play-icon"><i class="fas fa-play"></i></span>
-                            </div>
+                            <p>Authentic street sounds with traditional Rai roots</p>
+                            <a href="./albums/album3.html" class="card-link">Listen Now</a>
                         </div>
                     </div>
                 </div>
@@ -170,23 +161,19 @@
     <!-- Contact Section -->
     <section id="contact" class="contact">
         <div class="container">
-            <h2 class="section-title">تابعني على</h2>
+            <h2 class="section-title">Follow Me</h2>
             <div class="social-links">
-                <a href="https://youtube.com" class="social-btn" target="_blank">
+                <a href="https://youtube.com" target="_blank" class="social-link" title="YouTube">
                     <i class="fab fa-youtube"></i>
-                    <span>YouTube</span>
                 </a>
-                <a href="https://instagram.com" class="social-btn" target="_blank">
+                <a href="https://instagram.com" target="_blank" class="social-link" title="Instagram">
                     <i class="fab fa-instagram"></i>
-                    <span>Instagram</span>
                 </a>
-                <a href="https://tiktok.com" class="social-btn" target="_blank">
+                <a href="https://tiktok.com" target="_blank" class="social-link" title="TikTok">
                     <i class="fab fa-tiktok"></i>
-                    <span>TikTok</span>
                 </a>
-                <a href="https://spotify.com" class="social-btn" target="_blank">
+                <a href="https://spotify.com" target="_blank" class="social-link" title="Spotify">
                     <i class="fab fa-spotify"></i>
-                    <span>Spotify</span>
                 </a>
             </div>
         </div>
@@ -194,7 +181,7 @@
 
     <!-- Footer -->
     <footer class="footer">
-        <p>&copy; 2024 Mustapha Zyan. جميع الحقوق محفوظة.</p>
+        <p>&copy; 2024 Mustapha Zyan. All rights reserved.</p>
     </footer>
 
     <!-- Defer non-critical JavaScript -->
