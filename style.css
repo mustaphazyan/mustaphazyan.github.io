@@ -123,6 +123,37 @@ body {
     transition: var(--transition);
 }
 
+/* ===== Language Switcher ===== */
+.language-switcher {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.lang-btn {
+    padding: 8px 15px;
+    background: transparent;
+    border: 1px solid var(--primary-gold);
+    color: var(--text-secondary);
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: 600;
+    transition: var(--transition);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.lang-btn:hover {
+    background: var(--primary-gold);
+    color: #000;
+}
+
+.lang-btn.active {
+    background: var(--primary-gold);
+    color: #000;
+}
+
 /* ===== Hero Section ===== */
 .hero {
     position: relative;
