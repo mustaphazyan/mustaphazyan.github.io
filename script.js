@@ -5,6 +5,7 @@ const translations = {
             home: 'الرئيسية',
             biography: 'السيرة',
             discography: 'الألبومات',
+            player: 'المشغل المدمج',
             contact: 'التواصل'
         },
         hero: {
@@ -43,6 +44,7 @@ const translations = {
             home: 'Home',
             biography: 'Biography',
             discography: 'Albums',
+            player: 'Integrated Player',
             contact: 'Contact'
         },
         hero: {
@@ -81,6 +83,7 @@ const translations = {
             home: 'Accueil',
             biography: 'Biographie',
             discography: 'Albums',
+            player: 'Lecteur Intégré',
             contact: 'Contact'
         },
         hero: {
