@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="ZAHRAOUI PROD - منصة احترافية للتوزيع الموسيقي العالمي">
+  <meta name="keywords" content="توزيع موسيقي, حقوق رقمية, فنانين, موسيقى">
+  <meta name="author" content="ZAHRAOUI PROD">
+  <title>ZAHRAOUI PROD | منصة التوزيع الموسيقي الاحترافية</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- الرأس (Header) -->
+  <header>
+    <div class="header-container">
+      <a href="index.html" class="logo">
+        🎵 ZAHRAOUI <span>PROD</span>
+      </a>
+      <nav>
+        <a href="index.html" data-i18n="nav.home">الرئيسية</a>
+        <a href="#services" data-i18n="nav.services">الخدمات</a>
+        <a href="artists1.html" data-i18n="nav.artists">الفنانون</a>
+        <a href="#about" data-i18n="nav.about">من نحن</a>
+        <a href="contact.html" data-i18n="nav.contact">اتصل بنا</a>
+      </nav>
+      <div class="controls">
+        <button id="themeToggle" class="btn-toggle">🌙 وضع ليلي</button>
+        <button id="languageToggle" class="btn-toggle">EN</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- قسم البطل (Hero) -->
+  <section class="hero">
+    <div class="container">
+      <h1 data-i18n="hero.title">ZAHRAOUI <span>PROD</span></h1>
+      <p data-i18n="hero.subtitle">منصة احترافية للتوزيع الموسيقي العالمي</p>
+      <p data-i18n="hero.description">نساعد الفنانين والعلامات الموسيقية على توزيع أعمالهم عالمياً بكل احترافية</p>
+      <div class="hero-buttons">
+        <button class="btn btn-primary" onclick="smoothScroll('#services')" data-i18n="hero.btn1">اكتشف الخدمات</button>
+        <a href="contact.html" class="btn btn-secondary" data-i18n="hero.btn2">تواصل معنا</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- قسم من نحن -->
+  <section id="about">
+    <div class="container">
+      <h2 data-i18n="about.title">من <span>نحن</span></h2>
+      <p data-i18n="about.description">ZAHRAOUI PROD علامة مستقلة متخصصة في التوزيع الموسيقي والحقوق الرقمية. نقدم حلولاً احترافية وموثوقة للفنانين لضمان وصول أعمالهم إلى جمهور عالمي مع الحفاظ الكامل على حقوق الملكية الفكرية والاستفادة القصوى من الأرباح.</p>
+    </div>
+  </section>
+
+  <!-- قسم الخدمات -->
+  <section id="services">
+    <div class="container">
+      <h2 data-i18n="services.title">الخدمات <span>المميزة</span></h2>
+      <div class="services-grid">
+        <div class="service-card">
+          <div class="service-icon">🌍</div>
+          <h3 data-i18n="service.distribution">التوزيع الموسيقي العالمي</h3>
+          <p>نشر الأغاني والألبومات على Spotify و Apple Music و Deezer و TikTok و YouTube Music وأكثر من 150 منصة بث عالمية بسهولة وسرعة.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">🛡️</div>
+          <h3 data-i18n="service.copyright">حماية حقوق النشر</h3>
+          <p>إزالة المحتوى المسروق وتقديم بلاغات DMCA ضد أي انتهاك لحقوق الملكية الفكرية والمراقبة المستمرة لأعمالك.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">📺</div>
+          <h3 data-i18n="service.youtube">YouTube Content ID</h3>
+          <p>حماية موسيقاك على يوتيوب واكتشاف أي استخدام غير مصرح به وتحقيق الأرباح تلقائياً من كل استخدام.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">📢</div>
+          <h3 data-i18n="service.promotion">الترويج الموسيقي</h3>
+          <p>استراتيجيات تسويق رقمية احترافية لزيادة المشاهدات والاستماعات وبناء جمهور حقيقي ومخلص.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">👥</div>
+          <h3 data-i18n="service.management">إدارة الفنانين</h3>
+          <p>تطوير الهوية الفنية وإدارة الإصدارات الموسيقية وتحسين الظهور الرقمي والعلاقات مع المنصات.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">💰</div>
+          <h3 data-i18n="service.publishing">النشر الموسيقي</h3>
+          <p>إدارة العائدات وحقوق النشر وجمع الأرباح من مختلف المنصات العالمية مع تقارير شفافة وفورية.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- قسم الفنانين -->
+  <section id="artists">
+    <div class="container">
+      <h2 data-i18n="artists.title">الفنانون <span>المتميزون</span></h2>
+      <div class="artists-grid">
+        <a href="artists1.html" style="text-decoration: none; color: inherit;">
+          <div class="artist-card">
+            <div class="artist-image">🎤</div>
+            <div class="artist-info">
+              <div class="artist-name">Mustapha Zyan</div>
+              <div class="artist-description">فنان متميز من ZAHRAOUI PROD</div>
+              <a href="artists1.html" class="artist-link">اكتشف المزيد →</a>
+            </div>
+          </div>
+        </a>
+        <a href="artists2.html" style="text-decoration: none; color: inherit;">
+          <div class="artist-card">
+            <div class="artist-image">🎵</div>
+            <div class="artist-info">
+              <div class="artist-name">Hakim Qaisar</div>
+              <div class="artist-description">فنان متميز من ZAHRAOUI PROD</div>
+              <a href="artists2.html" class="artist-link">اكتشف المزيد →</a>
+            </div>
+          </div>
+        </a>
+        <a href="artists3.html" style="text-decoration: none; color: inherit;">
+          <div class="artist-card">
+            <div class="artist-image">🎸</div>
+            <div class="artist-info">
+              <div class="artist-name">Kader El Berkani</div>
+              <div class="artist-description">فنان متميز من ZAHRAOUI PROD</div>
+              <a href="artists3.html" class="artist-link">اكتشف المزيد →</a>
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- قسم الإحصائيات -->
+  <section id="stats">
+    <div class="container">
+      <h2>إحصائيات <span>النجاح</span></h2>
+      <div class="stats-grid">
+        <div class="stat-item">
+          <div class="stat-number">100+</div>
+          <div class="stat-label">إصدار موسيقي</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">24/7</div>
+          <div class="stat-label">حماية الحقوق</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">150+</div>
+          <div class="stat-label">منصة بث</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">Global</div>
+          <div class="stat-label">توزيع عالمي</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- التذييل (Footer) -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-section">
+        <h3>ZAHRAOUI PROD</h3>
+        <p>منصة احترافية للتوزيع الموسيقي العالمي وحماية الحقوق الرقمية.</p>
+      </div>
+      <div class="footer-section">
+        <h3 data-i18n="footer.about">من نحن</h3>
+        <a href="#about">من نحن</a>
+        <a href="#services">الخدمات</a>
+        <a href="#artists">الفنانون</a>
+      </div>
+      <div class="footer-section">
+        <h3 data-i18n="footer.contact">اتصل بنا</h3>
+        <a href="contact.html">نموذج الاتصال</a>
+        <a href="mailto:contact@zahraouiprod.com">البريد الإلكتروني</a>
+        <a href="https://instagram.com/zahraouiprod" target="_blank">Instagram</a>
+      </div>
+      <div class="footer-section">
+        <h3 data-i18n="footer.social">تابعنا</h3>
+        <div class="social-links">
+          <a href="https://instagram.com/zahraouiprod" class="social-link" target="_blank" title="Instagram">📱</a>
+          <a href="https://youtube.com/@zahraouiprod" class="social-link" target="_blank" title="YouTube">🎬</a>
+          <a href="https://wa.me/1234567890" class="social-link" target="_blank" title="WhatsApp">💬</a>
+          <a href="mailto:contact@zahraouiprod.com" class="social-link" title="Email">📧</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p data-i18n="footer.copyright">جميع الحقوق محفوظة © 2026 ZAHRAOUI PROD</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
