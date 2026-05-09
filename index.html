@@ -1,194 +1,289 @@
-<!DOCTYPE html>
-<html lang="ar" dir="rtl">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="ZAHRAOUI PROD - منصة احترافية للتوزيع الموسيقي العالمي">
-  <meta name="keywords" content="توزيع موسيقي, حقوق رقمية, فنانين, موسيقى">
-  <meta name="author" content="ZAHRAOUI PROD">
-  <title>ZAHRAOUI PROD | منصة التوزيع الموسيقي الاحترافية</title>
-  <link rel="stylesheet" href="style.css">
-  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
-</head>
-<body>
-  <!-- الرأس (Header) -->
-  <header>
-    <div class="header-container">
-      <a href="index.html" class="logo">
-        🎵 ZAHRAOUI <span>PROD</span>
-      </a>
-      <nav>
-        <a href="index.html" data-i18n="nav.home">الرئيسية</a>
-        <a href="#services" data-i18n="nav.services">الخدمات</a>
-        <a href="artists1.html" data-i18n="nav.artists">الفنانون</a>
-        <a href="#about" data-i18n="nav.about">من نحن</a>
-        <a href="contact.html" data-i18n="nav.contact">اتصل بنا</a>
-      </nav>
-      <div class="controls">
-        <button id="themeToggle" class="btn-toggle">🌙 وضع ليلي</button>
-        <button id="languageToggle" class="btn-toggle">EN</button>
-      </div>
-    </div>
-  </header>
+// ZAHRAOUI PROD - JavaScript Functions
+// وظائف التفاعل والتبديل بين الأوضاع
 
-  <!-- قسم البطل (Hero) -->
-  <section class="hero">
-    <div class="container">
-      <h1 data-i18n="hero.title">ZAHRAOUI <span>PROD</span></h1>
-      <p data-i18n="hero.subtitle">منصة احترافية للتوزيع الموسيقي العالمي</p>
-      <p data-i18n="hero.description">نساعد الفنانين والعلامات الموسيقية على توزيع أعمالهم عالمياً بكل احترافية</p>
-      <div class="hero-buttons">
-        <button class="btn btn-primary" onclick="smoothScroll('#services')" data-i18n="hero.btn1">اكتشف الخدمات</button>
-        <a href="contact.html" class="btn btn-secondary" data-i18n="hero.btn2">تواصل معنا</a>
-      </div>
-    </div>
-  </section>
+// ============================================
+// إدارة الوضع الليلي (Dark Mode)
+// ============================================
 
-  <!-- قسم من نحن -->
-  <section id="about">
-    <div class="container">
-      <h2 data-i18n="about.title">من <span>نحن</span></h2>
-      <p data-i18n="about.description">ZAHRAOUI PROD علامة مستقلة متخصصة في التوزيع الموسيقي والحقوق الرقمية. نقدم حلولاً احترافية وموثوقة للفنانين لضمان وصول أعمالهم إلى جمهور عالمي مع الحفاظ الكامل على حقوق الملكية الفكرية والاستفادة القصوى من الأرباح.</p>
-    </div>
-  </section>
+// التحقق من تفضيل الوضع المحفوظ
+function initDarkMode() {
+  const savedMode = localStorage.getItem('darkMode');
+  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+  
+  if (savedMode === 'true' || (savedMode === null && prefersDark)) {
+    enableDarkMode();
+  } else {
+    disableDarkMode();
+  }
+}
 
-  <!-- قسم الخدمات -->
-  <section id="services">
-    <div class="container">
-      <h2 data-i18n="services.title">الخدمات <span>المميزة</span></h2>
-      <div class="services-grid">
-        <div class="service-card">
-          <div class="service-icon">🌍</div>
-          <h3 data-i18n="service.distribution">التوزيع الموسيقي العالمي</h3>
-          <p>نشر الأغاني والألبومات على Spotify و Apple Music و Deezer و TikTok و YouTube Music وأكثر من 150 منصة بث عالمية بسهولة وسرعة.</p>
-        </div>
-        <div class="service-card">
-          <div class="service-icon">🛡️</div>
-          <h3 data-i18n="service.copyright">حماية حقوق النشر</h3>
-          <p>إزالة المحتوى المسروق وتقديم بلاغات DMCA ضد أي انتهاك لحقوق الملكية الفكرية والمراقبة المستمرة لأعمالك.</p>
-        </div>
-        <div class="service-card">
-          <div class="service-icon">📺</div>
-          <h3 data-i18n="service.youtube">YouTube Content ID</h3>
-          <p>حماية موسيقاك على يوتيوب واكتشاف أي استخدام غير مصرح به وتحقيق الأرباح تلقائياً من كل استخدام.</p>
-        </div>
-        <div class="service-card">
-          <div class="service-icon">📢</div>
-          <h3 data-i18n="service.promotion">الترويج الموسيقي</h3>
-          <p>استراتيجيات تسويق رقمية احترافية لزيادة المشاهدات والاستماعات وبناء جمهور حقيقي ومخلص.</p>
-        </div>
-        <div class="service-card">
-          <div class="service-icon">👥</div>
-          <h3 data-i18n="service.management">إدارة الفنانين</h3>
-          <p>تطوير الهوية الفنية وإدارة الإصدارات الموسيقية وتحسين الظهور الرقمي والعلاقات مع المنصات.</p>
-        </div>
-        <div class="service-card">
-          <div class="service-icon">💰</div>
-          <h3 data-i18n="service.publishing">النشر الموسيقي</h3>
-          <p>إدارة العائدات وحقوق النشر وجمع الأرباح من مختلف المنصات العالمية مع تقارير شفافة وفورية.</p>
-        </div>
-      </div>
-    </div>
-  </section>
+// تفعيل الوضع الليلي
+function enableDarkMode() {
+  document.body.classList.add('dark-mode');
+  localStorage.setItem('darkMode', 'true');
+  updateThemeToggleButton();
+}
 
-  <!-- قسم الفنانين -->
-  <section id="artists">
-    <div class="container">
-      <h2 data-i18n="artists.title">الفنانون <span>المتميزون</span></h2>
-      <div class="artists-grid">
-        <a href="artists1.html" style="text-decoration: none; color: inherit;">
-          <div class="artist-card">
-            <div class="artist-image">🎤</div>
-            <div class="artist-info">
-              <div class="artist-name">Mustapha Zyan</div>
-              <div class="artist-description">فنان متميز من ZAHRAOUI PROD</div>
-              <a href="artists1.html" class="artist-link">اكتشف المزيد →</a>
-            </div>
-          </div>
-        </a>
-        <a href="artists2.html" style="text-decoration: none; color: inherit;">
-          <div class="artist-card">
-            <div class="artist-image">🎵</div>
-            <div class="artist-info">
-              <div class="artist-name">Hakim Qaisar</div>
-              <div class="artist-description">فنان متميز من ZAHRAOUI PROD</div>
-              <a href="artists2.html" class="artist-link">اكتشف المزيد →</a>
-            </div>
-          </div>
-        </a>
-        <a href="artists3.html" style="text-decoration: none; color: inherit;">
-          <div class="artist-card">
-            <div class="artist-image">🎸</div>
-            <div class="artist-info">
-              <div class="artist-name">Kader El Berkani</div>
-              <div class="artist-description">فنان متميز من ZAHRAOUI PROD</div>
-              <a href="artists3.html" class="artist-link">اكتشف المزيد →</a>
-            </div>
-          </div>
-        </a>
-      </div>
-    </div>
-  </section>
+// تعطيل الوضع الليلي
+function disableDarkMode() {
+  document.body.classList.remove('dark-mode');
+  localStorage.setItem('darkMode', 'false');
+  updateThemeToggleButton();
+}
 
-  <!-- قسم الإحصائيات -->
-  <section id="stats">
-    <div class="container">
-      <h2>إحصائيات <span>النجاح</span></h2>
-      <div class="stats-grid">
-        <div class="stat-item">
-          <div class="stat-number">100+</div>
-          <div class="stat-label">إصدار موسيقي</div>
-        </div>
-        <div class="stat-item">
-          <div class="stat-number">24/7</div>
-          <div class="stat-label">حماية الحقوق</div>
-        </div>
-        <div class="stat-item">
-          <div class="stat-number">150+</div>
-          <div class="stat-label">منصة بث</div>
-        </div>
-        <div class="stat-item">
-          <div class="stat-number">Global</div>
-          <div class="stat-label">توزيع عالمي</div>
-        </div>
-      </div>
-    </div>
-  </section>
+// تبديل الوضع الليلي
+function toggleDarkMode() {
+  if (document.body.classList.contains('dark-mode')) {
+    disableDarkMode();
+  } else {
+    enableDarkMode();
+  }
+}
 
-  <!-- التذييل (Footer) -->
-  <footer>
-    <div class="footer-content">
-      <div class="footer-section">
-        <h3>ZAHRAOUI PROD</h3>
-        <p>منصة احترافية للتوزيع الموسيقي العالمي وحماية الحقوق الرقمية.</p>
-      </div>
-      <div class="footer-section">
-        <h3 data-i18n="footer.about">من نحن</h3>
-        <a href="#about">من نحن</a>
-        <a href="#services">الخدمات</a>
-        <a href="#artists">الفنانون</a>
-      </div>
-      <div class="footer-section">
-        <h3 data-i18n="footer.contact">اتصل بنا</h3>
-        <a href="contact.html">نموذج الاتصال</a>
-        <a href="mailto:contact@zahraouiprod.com">البريد الإلكتروني</a>
-        <a href="https://instagram.com/zahraouiprod" target="_blank">Instagram</a>
-      </div>
-      <div class="footer-section">
-        <h3 data-i18n="footer.social">تابعنا</h3>
-        <div class="social-links">
-          <a href="https://instagram.com/zahraouiprod" class="social-link" target="_blank" title="Instagram">📱</a>
-          <a href="https://youtube.com/@zahraouiprod" class="social-link" target="_blank" title="YouTube">🎬</a>
-          <a href="https://wa.me/1234567890" class="social-link" target="_blank" title="WhatsApp">💬</a>
-          <a href="mailto:contact@zahraouiprod.com" class="social-link" title="Email">📧</a>
-        </div>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <p data-i18n="footer.copyright">جميع الحقوق محفوظة © 2026 ZAHRAOUI PROD</p>
-    </div>
-  </footer>
+// تحديث نص زر التبديل
+function updateThemeToggleButton() {
+  const btn = document.getElementById('themeToggle');
+  if (btn) {
+    const isDark = document.body.classList.contains('dark-mode');
+    btn.textContent = isDark ? '☀️ وضع فاتح' : '🌙 وضع ليلي';
+    btn.title = isDark ? 'التبديل إلى الوضع الفاتح' : 'التبديل إلى الوضع الليلي';
+  }
+}
 
-  <script src="script.js"></script>
-</body>
-</html>
+// ============================================
+// إدارة اللغات (Language Support)
+// ============================================
+
+const translations = {
+  ar: {
+    'nav.home': 'الرئيسية',
+    'nav.services': 'الخدمات',
+    'nav.artists': 'الفنانون',
+    'nav.about': 'من نحن',
+    'nav.contact': 'اتصل بنا',
+    'hero.title': 'ZAHRAOUI PROD',
+    'hero.subtitle': 'منصة احترافية للتوزيع الموسيقي العالمي',
+    'hero.description': 'نساعد الفنانين والعلامات الموسيقية على توزيع أعمالهم عالمياً بكل احترافية',
+    'hero.btn1': 'اكتشف الخدمات',
+    'hero.btn2': 'تواصل معنا',
+    'about.title': 'من نحن',
+    'about.description': 'ZAHRAOUI PROD علامة مستقلة متخصصة في التوزيع الموسيقي والحقوق الرقمية',
+    'services.title': 'الخدمات المميزة',
+    'service.distribution': 'التوزيع الموسيقي العالمي',
+    'service.copyright': 'حماية حقوق النشر',
+    'service.youtube': 'YouTube Content ID',
+    'service.promotion': 'الترويج الموسيقي',
+    'service.management': 'إدارة الفنانين',
+    'service.publishing': 'النشر الموسيقي',
+    'artists.title': 'الفنانون المتميزون',
+    'contact.title': 'اتصل بنا',
+    'contact.name': 'الاسم',
+    'contact.email': 'البريد الإلكتروني',
+    'contact.message': 'الرسالة',
+    'contact.send': 'إرسال',
+    'footer.about': 'من نحن',
+    'footer.services': 'الخدمات',
+    'footer.contact': 'اتصل بنا',
+    'footer.social': 'تابعنا',
+    'footer.copyright': 'جميع الحقوق محفوظة © 2026 ZAHRAOUI PROD'
+  },
+  en: {
+    'nav.home': 'Home',
+    'nav.services': 'Services',
+    'nav.artists': 'Artists',
+    'nav.about': 'About',
+    'nav.contact': 'Contact',
+    'hero.title': 'ZAHRAOUI PROD',
+    'hero.subtitle': 'Professional Music Distribution Platform',
+    'hero.description': 'We help artists and music labels distribute their work globally with professionalism',
+    'hero.btn1': 'Discover Services',
+    'hero.btn2': 'Contact Us',
+    'about.title': 'About Us',
+    'about.description': 'ZAHRAOUI PROD is an independent label specializing in music distribution and digital rights',
+    'services.title': 'Featured Services',
+    'service.distribution': 'Global Music Distribution',
+    'service.copyright': 'Copyright Protection',
+    'service.youtube': 'YouTube Content ID',
+    'service.promotion': 'Music Promotion',
+    'service.management': 'Artist Management',
+    'service.publishing': 'Music Publishing',
+    'artists.title': 'Featured Artists',
+    'contact.title': 'Contact Us',
+    'contact.name': 'Name',
+    'contact.email': 'Email',
+    'contact.message': 'Message',
+    'contact.send': 'Send',
+    'footer.about': 'About',
+    'footer.services': 'Services',
+    'footer.contact': 'Contact',
+    'footer.social': 'Follow Us',
+    'footer.copyright': 'All rights reserved © 2026 ZAHRAOUI PROD'
+  }
+};
+
+// الحصول على اللغة المحفوظة
+function getCurrentLanguage() {
+  return localStorage.getItem('language') || 'ar';
+}
+
+// تعيين اللغة
+function setLanguage(lang) {
+  localStorage.setItem('language', lang);
+  document.documentElement.lang = lang;
+  document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
+  updatePageTranslations(lang);
+  updateLanguageToggleButton(lang);
+}
+
+// تحديث الترجمات في الصفحة
+function updatePageTranslations(lang) {
+  const elements = document.querySelectorAll('[data-i18n]');
+  elements.forEach(element => {
+    const key = element.getAttribute('data-i18n');
+    if (translations[lang] && translations[lang][key]) {
+      element.textContent = translations[lang][key];
+    }
+  });
+}
+
+// تحديث نص زر اللغة
+function updateLanguageToggleButton(lang) {
+  const btn = document.getElementById('languageToggle');
+  if (btn) {
+    btn.textContent = lang === 'ar' ? 'EN' : 'AR';
+    btn.title = lang === 'ar' ? 'Switch to English' : 'التبديل إلى العربية';
+  }
+}
+
+// تبديل اللغة
+function toggleLanguage() {
+  const currentLang = getCurrentLanguage();
+  const newLang = currentLang === 'ar' ? 'en' : 'ar';
+  setLanguage(newLang);
+}
+
+// ============================================
+// وظائف النموذج
+// ============================================
+
+function handleFormSubmit(e) {
+  e.preventDefault();
+  
+  const form = e.target;
+  const formData = new FormData(form);
+  
+  // التحقق من البيانات
+  const name = formData.get('name');
+  const email = formData.get('email');
+  const message = formData.get('message');
+  
+  if (!name || !email || !message) {
+    alert('يرجى ملء جميع الحقول');
+    return;
+  }
+  
+  // التحقق من صحة البريد الإلكتروني
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (!emailRegex.test(email)) {
+    alert('يرجى إدخال بريد إلكتروني صحيح');
+    return;
+  }
+  
+  // محاكاة إرسال النموذج
+  console.log('Form Data:', { name, email, message });
+  alert('تم إرسال رسالتك بنجاح! شكراً لتواصلك معنا.');
+  form.reset();
+}
+
+// ============================================
+// وظائف التنقل
+// ============================================
+
+function smoothScroll(target) {
+  const element = document.querySelector(target);
+  if (element) {
+    element.scrollIntoView({ behavior: 'smooth' });
+  }
+}
+
+// ============================================
+// التهيئة عند تحميل الصفحة
+// ============================================
+
+document.addEventListener('DOMContentLoaded', function() {
+  // تهيئة الوضع الليلي
+  initDarkMode();
+  
+  // تهيئة اللغة
+  const currentLang = getCurrentLanguage();
+  setLanguage(currentLang);
+  
+  // إضافة مستمعي الأحداث للأزرار
+  const themeToggle = document.getElementById('themeToggle');
+  if (themeToggle) {
+    themeToggle.addEventListener('click', toggleDarkMode);
+  }
+  
+  const languageToggle = document.getElementById('languageToggle');
+  if (languageToggle) {
+    languageToggle.addEventListener('click', toggleLanguage);
+  }
+  
+  // إضافة مستمع الأحداث لنموذج الاتصال
+  const contactForm = document.getElementById('contactForm');
+  if (contactForm) {
+    contactForm.addEventListener('submit', handleFormSubmit);
+  }
+  
+  // إضافة مستمعي الأحداث للروابط الناعمة
+  const smoothScrollLinks = document.querySelectorAll('a[href^="#"]');
+  smoothScrollLinks.forEach(link => {
+    link.addEventListener('click', function(e) {
+      e.preventDefault();
+      const target = this.getAttribute('href');
+      smoothScroll(target);
+    });
+  });
+  
+  // تحديث زر التبديل
+  updateThemeToggleButton();
+});
+
+// ============================================
+// وظائف إضافية
+// ============================================
+
+// إضافة تأثير عند التمرير
+window.addEventListener('scroll', function() {
+  const header = document.querySelector('header');
+  if (header) {
+    if (window.scrollY > 50) {
+      header.style.boxShadow = 'var(--shadow-lg)';
+    } else {
+      header.style.boxShadow = 'var(--shadow)';
+    }
+  }
+});
+
+// دعم الاستجابة للتغييرات في تفضيل النظام
+window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
+  if (localStorage.getItem('darkMode') === null) {
+    if (e.matches) {
+      enableDarkMode();
+    } else {
+      disableDarkMode();
+    }
+  }
+});
+
+// تصدير الوظائف للاستخدام الخارجي
+if (typeof module !== 'undefined' && module.exports) {
+  module.exports = {
+    toggleDarkMode,
+    toggleLanguage,
+    setLanguage,
+    getCurrentLanguage,
+    handleFormSubmit,
+    smoothScroll
+  };
+}

@@ -1,235 +1,183 @@
-# ZAHRAOUI PROD - منصة التوزيع الموسيقي الاحترافية
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Kader El Berkani - فنان متميز من ZAHRAOUI PROD">
+  <title>Kader El Berkani - ZAHRAOUI PROD</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- الرأس (Header) -->
+  <header>
+    <div class="header-container">
+      <a href="index.html" class="logo">
+        🎵 ZAHRAOUI <span>PROD</span>
+      </a>
+      <nav>
+        <a href="index.html" data-i18n="nav.home">الرئيسية</a>
+        <a href="index.html#services" data-i18n="nav.services">الخدمات</a>
+        <a href="artists1.html" data-i18n="nav.artists">الفنانون</a>
+        <a href="index.html#about" data-i18n="nav.about">من نحن</a>
+        <a href="contact.html" data-i18n="nav.contact">اتصل بنا</a>
+      </nav>
+      <div class="controls">
+        <button id="themeToggle" class="btn-toggle">🌙 وضع ليلي</button>
+        <button id="languageToggle" class="btn-toggle">EN</button>
+      </div>
+    </div>
+  </header>
 
-**Professional Music Distribution Platform**
+  <!-- قسم البطل -->
+  <section class="hero">
+    <div class="container">
+      <h1>Mustapha <span>Zyan</span></h1>
+      <p>فنان متميز من ZAHRAOUI PROD</p>
+    </div>
+  </section>
 
-موقع GitHub Pages بسيط وسهل الاستخدام مع دعم كامل للغة العربية والإنجليزية والوضع الليلي.
+  <!-- معلومات الفنان -->
+  <section>
+    <div class="container">
+      <div style="max-width: 900px; margin: 0 auto;">
+        <!-- الصورة والمعلومات -->
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; margin-bottom: 3rem; align-items: start;">
+          <div style="background: linear-gradient(135deg, var(--accent-color) 0%, #003d6b 100%); border-radius: 8px; padding: 3rem; text-align: center; color: white; min-height: 300px; display: flex; align-items: center; justify-content: center; font-size: 5rem;">
+            🎸
+          </div>
+          <div>
+            <h2 style="color: var(--accent-color); margin-bottom: 1rem;">معلومات الفنان</h2>
+            <div style="background-color: var(--bg-secondary); padding: 1.5rem; border-radius: 8px; border: 1px solid var(--border-color); margin-bottom: 1.5rem;">
+              <h3 style="color: var(--accent-color); margin-bottom: 0.5rem;">الاسم</h3>
+              <p style="color: var(--text-secondary);">Kader El Berkani</p>
+            </div>
+            <div style="background-color: var(--bg-secondary); padding: 1.5rem; border-radius: 8px; border: 1px solid var(--border-color); margin-bottom: 1.5rem;">
+              <h3 style="color: var(--accent-color); margin-bottom: 0.5rem;">النوع الموسيقي</h3>
+              <p style="color: var(--text-secondary);">موسيقى عربية معاصرة</p>
+            </div>
+            <div style="background-color: var(--bg-secondary); padding: 1.5rem; border-radius: 8px; border: 1px solid var(--border-color); margin-bottom: 1.5rem;">
+              <h3 style="color: var(--accent-color); margin-bottom: 0.5rem;">تاريخ الانضمام</h3>
+              <p style="color: var(--text-secondary);">2023</p>
+            </div>
+            <div style="background-color: var(--bg-secondary); padding: 1.5rem; border-radius: 8px; border: 1px solid var(--border-color);">
+              <h3 style="color: var(--accent-color); margin-bottom: 1rem;">تابع على</h3>
+              <div class="social-links" style="justify-content: flex-start;">
+                <a href="https://spotify.com" target="_blank" class="social-link">🎵</a>
+                <a href="https://instagram.com" target="_blank" class="social-link">📱</a>
+                <a href="https://youtube.com" target="_blank" class="social-link">🎬</a>
+              </div>
+            </div>
+          </div>
+        </div>
 
-## 📁 هيكل الملفات
+        <!-- الوصف -->
+        <div style="background-color: var(--bg-secondary); padding: 2rem; border-radius: 8px; border: 1px solid var(--border-color); margin-bottom: 3rem;">
+          <h2 style="color: var(--accent-color); margin-bottom: 1rem;">نبذة عن الفنان</h2>
+          <p style="color: var(--text-secondary); line-height: 1.8; margin-bottom: 1rem;">
+            Kader El Berkani هو فنان موسيقي متميز متخصص في الموسيقى العربية المعاصرة. يتمتع بصوت فريد وأسلوب مميز يجمع بين الأصالة والحداثة. انضم إلى ZAHRAOUI PROD لتوزيع أعماله على المنصات العالمية.
+          </p>
+          <p style="color: var(--text-secondary); line-height: 1.8;">
+            من خلال منصتنا، تمكن Kader El Berkani من الوصول إلى ملايين المستمعين حول العالم والحفاظ على حقوقه الفكرية بشكل كامل.
+          </p>
+        </div>
 
-```
-zahraoui-github/
-├── index.html          # الصفحة الرئيسية
-├── contact.html        # صفحة الاتصال
-├── artists1.html       # صفحة الفنان الأول (Mustapha Zyan)
-├── artists2.html       # صفحة الفنان الثاني (Hakim Qaisar)
-├── artists3.html       # صفحة الفنان الثالث (Kader El Berkani)
-├── style.css           # ملف التنسيقات الموحد
-├── script.js           # ملف الوظائف التفاعلية
-└── README.md           # هذا الملف
-```
+        <!-- الأغاني -->
+        <div style="margin-bottom: 3rem;">
+          <h2 style="color: var(--accent-color); margin-bottom: 1.5rem;">أحدث الأغاني</h2>
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem;">
+            <div style="background-color: var(--bg-secondary); padding: 1.5rem; border-radius: 8px; border: 1px solid var(--border-color); text-align: center;">
+              <div style="font-size: 3rem; margin-bottom: 1rem;">🎵</div>
+              <h3 style="color: var(--accent-color); margin-bottom: 0.5rem;">أغنية 1</h3>
+              <p style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 1rem;">2024</p>
+              <a href="https://spotify.com" target="_blank" class="btn btn-primary" style="display: inline-block;">استمع</a>
+            </div>
+            <div style="background-color: var(--bg-secondary); padding: 1.5rem; border-radius: 8px; border: 1px solid var(--border-color); text-align: center;">
+              <div style="font-size: 3rem; margin-bottom: 1rem;">🎵</div>
+              <h3 style="color: var(--accent-color); margin-bottom: 0.5rem;">أغنية 2</h3>
+              <p style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 1rem;">2024</p>
+              <a href="https://spotify.com" target="_blank" class="btn btn-primary" style="display: inline-block;">استمع</a>
+            </div>
+            <div style="background-color: var(--bg-secondary); padding: 1.5rem; border-radius: 8px; border: 1px solid var(--border-color); text-align: center;">
+              <div style="font-size: 3rem; margin-bottom: 1rem;">🎵</div>
+              <h3 style="color: var(--accent-color); margin-bottom: 0.5rem;">أغنية 3</h3>
+              <p style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 1rem;">2023</p>
+              <a href="https://spotify.com" target="_blank" class="btn btn-primary" style="display: inline-block;">استمع</a>
+            </div>
+          </div>
+        </div>
 
-## ✨ الميزات الرئيسية
+        <!-- الفنانون الآخرون -->
+        <div style="margin-bottom: 3rem;">
+          <h2 style="color: var(--accent-color); margin-bottom: 1.5rem;">فنانون آخرون</h2>
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem;">
+            <a href="artists1.html" style="text-decoration: none; color: inherit;">
+              <div style="background-color: var(--bg-secondary); border-radius: 8px; overflow: hidden; border: 1px solid var(--border-color); transition: all 0.3s ease; cursor: pointer;">
+                <div style="background: linear-gradient(135deg, var(--accent-color) 0%, #003d6b 100%); padding: 2rem; text-align: center; color: white; font-size: 2rem;">
+                  🎸
+                </div>
+                <div style="padding: 1rem;">
+                  <h3 style="color: var(--accent-color);">Hakim Qaisar</h3>
+                  <p style="color: var(--text-secondary); font-size: 0.9rem;">فنان متميز</p>
+                </div>
+              </div>
+            </a>
+            <a href="artists1.html" style="text-decoration: none; color: inherit;">
+              <div style="background-color: var(--bg-secondary); border-radius: 8px; overflow: hidden; border: 1px solid var(--border-color); transition: all 0.3s ease; cursor: pointer;">
+                <div style="background: linear-gradient(135deg, var(--accent-color) 0%, #003d6b 100%); padding: 2rem; text-align: center; color: white; font-size: 2rem;">
+                  🎸
+                </div>
+                <div style="padding: 1rem;">
+                  <h3 style="color: var(--accent-color);">Kader El Berkani</h3>
+                  <p style="color: var(--text-secondary); font-size: 0.9rem;">فنان متميز</p>
+                </div>
+              </div>
+            </a>
+          </div>
+        </div>
 
-### 🌙 الوضع الليلي (Dark Mode)
-- تبديل سلس بين الوضع الفاتح والليلي
-- حفظ التفضيل في localStorage
-- يدعم تفضيلات النظام التلقائية
+        <!-- زر العودة -->
+        <div style="text-align: center; margin-bottom: 2rem;">
+          <a href="index.html#artists" class="btn btn-secondary">← العودة إلى الفنانين</a>
+        </div>
+      </div>
+    </div>
+  </section>
 
-### 🌍 دعم اللغات المتعددة
-- **العربية (AR)** - مع دعم كامل للـ RTL
-- **الإنجليزية (EN)** - مع دعم كامل للـ LTR
-- تبديل فوري بدون إعادة تحميل الصفحة
-- حفظ اختيار اللغة في localStorage
+  <!-- التذييل (Footer) -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-section">
+        <h3>ZAHRAOUI PROD</h3>
+        <p>منصة احترافية للتوزيع الموسيقي العالمي وحماية الحقوق الرقمية.</p>
+      </div>
+      <div class="footer-section">
+        <h3 data-i18n="footer.about">من نحن</h3>
+        <a href="index.html#about">من نحن</a>
+        <a href="index.html#services">الخدمات</a>
+        <a href="index.html#artists">الفنانون</a>
+      </div>
+      <div class="footer-section">
+        <h3 data-i18n="footer.contact">اتصل بنا</h3>
+        <a href="contact.html">نموذج الاتصال</a>
+        <a href="mailto:contact@zahraouiprod.com">البريد الإلكتروني</a>
+        <a href="https://instagram.com/zahraouiprod" target="_blank">Instagram</a>
+      </div>
+      <div class="footer-section">
+        <h3 data-i18n="footer.social">تابعنا</h3>
+        <div class="social-links">
+          <a href="https://instagram.com/zahraouiprod" class="social-link" target="_blank" title="Instagram">📱</a>
+          <a href="https://youtube.com/@zahraouiprod" class="social-link" target="_blank" title="YouTube">🎬</a>
+          <a href="https://wa.me/1234567890" class="social-link" target="_blank" title="WhatsApp">💬</a>
+          <a href="mailto:contact@zahraouiprod.com" class="social-link" title="Email">📧</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p data-i18n="footer.copyright">جميع الحقوق محفوظة © 2026 ZAHRAOUI PROD</p>
+    </div>
+  </footer>
 
-### 🎨 نظام ألوان أسود وأبيض
-- تصميم احترافي وبسيط
-- ألوان واضحة وسهلة القراءة
-- متوافق مع الوضع الليلي
-
-### 📱 تصميم متجاوب
-- يعمل بشكل مثالي على جميع الأجهزة
-- Mobile-first approach
-- شاشات صغيرة وكبيرة
-
-### ⚡ أداء سريع
-- ملفات خفيفة الوزن
-- بدون مكتبات خارجية ثقيلة
-- تحميل سريع جداً
-
-## 🚀 البدء السريع
-
-### 1. استنساخ المستودع
-```bash
-git clone https://github.com/sonariqmusic/sonariq-music.github.io.git
-cd sonariq-music.github.io
-```
-
-### 2. فتح الموقع
-يمكنك فتح الملفات مباشرة في المتصفح:
-- Windows: انقر نقراً مزدوجاً على `index.html`
-- Mac/Linux: `open index.html` أو `firefox index.html`
-
-### 3. أو استخدم خادم محلي
-```bash
-# باستخدام Python 3
-python -m http.server 8000
-
-# أو باستخدام Node.js
-npx http-server
-```
-
-ثم افتح: `http://localhost:8000`
-
-## 📝 تخصيص الموقع
-
-### تغيير الألوان
-عدّل متغيرات CSS في `style.css`:
-```css
-:root {
-  --accent-color: #004E89;      /* اللون الأساسي */
-  --accent-light: #F7B801;      /* اللون الثانوي */
-  --bg-primary: #ffffff;        /* خلفية الوضع الفاتح */
-  --text-primary: #000000;      /* نص الوضع الفاتح */
-}
-
-body.dark-mode {
-  --bg-primary: #1a1a1a;        /* خلفية الوضع الليلي */
-  --text-primary: #ffffff;      /* نص الوضع الليلي */
-}
-```
-
-### إضافة فنان جديد
-1. انسخ ملف `artists1.html`
-2. غيّر الاسم والمعلومات
-3. أضف الرابط في `index.html`
-
-### تحديث معلومات الاتصال
-عدّل الروابط في `contact.html` و `index.html`:
-```html
-<a href="mailto:your-email@example.com">البريد الإلكتروني</a>
-<a href="https://wa.me/your-number">WhatsApp</a>
-<a href="https://instagram.com/your-account">Instagram</a>
-```
-
-### إضافة ترجمات جديدة
-عدّل كائن `translations` في `script.js`:
-```javascript
-const translations = {
-  ar: {
-    'key': 'القيمة بالعربية',
-  },
-  en: {
-    'key': 'The value in English',
-  }
-};
-```
-
-## 🔧 الوظائف الرئيسية في script.js
-
-### إدارة الوضع الليلي
-```javascript
-toggleDarkMode()      // تبديل الوضع
-enableDarkMode()      // تفعيل الوضع الليلي
-disableDarkMode()     // تعطيل الوضع الليلي
-```
-
-### إدارة اللغات
-```javascript
-toggleLanguage()      // تبديل اللغة
-setLanguage('ar')     // تعيين لغة معينة
-getCurrentLanguage()  // الحصول على اللغة الحالية
-```
-
-### وظائف أخرى
-```javascript
-handleFormSubmit()    // معالجة نموذج الاتصال
-smoothScroll()        // تمرير سلس
-```
-
-## 📱 التوافقية
-
-- ✅ Chrome/Chromium
-- ✅ Firefox
-- ✅ Safari
-- ✅ Edge
-- ✅ جميع المتصفحات الحديثة
-
-## 🌐 نشر على GitHub Pages
-
-### الخطوة 1: إنشاء مستودع
-```bash
-git init
-git add .
-git commit -m "Initial commit"
-git branch -M main
-git remote add origin https://github.com/your-username/your-repo.git
-git push -u origin main
-```
-
-### الخطوة 2: تفعيل GitHub Pages
-1. اذهب إلى Settings في المستودع
-2. اختر Pages من القائمة الجانبية
-3. اختر Branch: main
-4. اضغط Save
-
-### الخطوة 3: الوصول للموقع
-سيكون الموقع متاحاً على: `https://your-username.github.io/your-repo`
-
-## 📄 الملفات الرئيسية
-
-### index.html
-الصفحة الرئيسية تحتوي على:
-- قسم البطل (Hero)
-- قسم من نحن
-- قسم الخدمات
-- قسم الفنانين
-- قسم الإحصائيات
-- التذييل
-
-### contact.html
-صفحة الاتصال تحتوي على:
-- معلومات الاتصال
-- نموذج الاتصال
-- وسائل التواصل الاجتماعي
-- ساعات العمل
-
-### artists*.html
-صفحات الفنانين تحتوي على:
-- معلومات الفنان
-- نبذة عن الفنان
-- أحدث الأغاني
-- فنانون آخرون
-
-### style.css
-ملف التنسيقات يحتوي على:
-- متغيرات CSS للألوان
-- تنسيقات الوضع الليلي
-- تنسيقات الاستجابة
-- تأثيرات التحويم
-
-### script.js
-ملف الوظائف يحتوي على:
-- إدارة الوضع الليلي
-- إدارة اللغات
-- معالجة النماذج
-- وظائف التنقل
-
-## 🎯 الميزات المستقبلية
-
-- [ ] نظام حجز الاستشارات
-- [ ] لوحة تحكم للفنانين
-- [ ] نظام التعليقات
-- [ ] تقارير تحليلية
-- [ ] نظام البحث
-- [ ] دعم لغات إضافية
-
-## 📞 الدعم والتواصل
-
-- **البريد الإلكتروني**: contact@zahraouiprod.com
-- **Instagram**: @zahraouiprod
-- **YouTube**: @zahraouiprod
-- **WhatsApp**: [رقم الواتس]
-
-## 📄 الترخيص
-
-جميع الحقوق محفوظة © 2026 ZAHRAOUI PROD
-
-## 🙏 شكر وتقدير
-
-شكراً لاستخدام ZAHRAOUI PROD. نتمنى لك تجربة رائعة!
-
----
-
-**مبني بـ ❤️ باستخدام HTML, CSS, و JavaScript**
-
-آخر تحديث: 2026-05-09
+  <script src="script.js"></script>
+</body>
+</html>

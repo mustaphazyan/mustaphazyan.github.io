@@ -1,289 +1,532 @@
-// ZAHRAOUI PROD - JavaScript Functions
-// وظائف التفاعل والتبديل بين الأوضاع
+/* ZAHRAOUI PROD - Style Sheet */
+/* نظام ألوان أسود وأبيض مع دعم الوضع الليلي */
 
-// ============================================
-// إدارة الوضع الليلي (Dark Mode)
-// ============================================
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-// التحقق من تفضيل الوضع المحفوظ
-function initDarkMode() {
-  const savedMode = localStorage.getItem('darkMode');
-  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-  
-  if (savedMode === 'true' || (savedMode === null && prefersDark)) {
-    enableDarkMode();
-  } else {
-    disableDarkMode();
+:root {
+  /* الوضع الفاتح (الأبيض) */
+  --bg-primary: #ffffff;
+  --bg-secondary: #f5f5f5;
+  --text-primary: #000000;
+  --text-secondary: #333333;
+  --border-color: #e0e0e0;
+  --accent-color: #004E89;
+  --accent-light: #F7B801;
+  --shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 4px 16px rgba(0, 0, 0, 0.15);
+}
+
+/* الوضع الليلي (الأسود) */
+body.dark-mode {
+  --bg-primary: #1a1a1a;
+  --bg-secondary: #2d2d2d;
+  --text-primary: #ffffff;
+  --text-secondary: #e0e0e0;
+  --border-color: #404040;
+  --accent-color: #4a90e2;
+  --shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  --shadow-lg: 0 4px 16px rgba(0, 0, 0, 0.5);
+}
+
+/* الخط والنص */
+body {
+  font-family: 'Cairo', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  line-height: 1.6;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* الرأس (Header) */
+header {
+  background-color: var(--bg-secondary);
+  border-bottom: 1px solid var(--border-color);
+  padding: 1rem 0;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: var(--shadow);
+}
+
+.header-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: var(--accent-color);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.logo span {
+  color: var(--accent-light);
+}
+
+/* التنقل */
+nav {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+}
+
+nav a {
+  color: var(--text-primary);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+}
+
+nav a:hover {
+  color: var(--accent-color);
+  background-color: var(--bg-primary);
+}
+
+/* أزرار التحكم */
+.controls {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.btn-toggle {
+  background: none;
+  border: 2px solid var(--text-primary);
+  color: var(--text-primary);
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  font-weight: 500;
+}
+
+.btn-toggle:hover {
+  background-color: var(--accent-color);
+  color: white;
+  border-color: var(--accent-color);
+}
+
+/* الحاوية الرئيسية */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+/* قسم البطل (Hero) */
+.hero {
+  background: linear-gradient(135deg, var(--accent-color) 0%, #003d6b 100%);
+  color: white;
+  padding: 6rem 2rem;
+  text-align: center;
+  border-radius: 8px;
+  margin: 3rem 0;
+  box-shadow: var(--shadow-lg);
+}
+
+.hero h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  font-weight: bold;
+}
+
+.hero h1 span {
+  color: var(--accent-light);
+}
+
+.hero p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  opacity: 0.95;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* الأزرار */
+.btn {
+  padding: 0.75rem 2rem;
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.btn-primary {
+  background-color: var(--accent-light);
+  color: #000;
+}
+
+.btn-primary:hover {
+  background-color: #e6a800;
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+
+.btn-secondary {
+  background-color: transparent;
+  color: white;
+  border: 2px solid white;
+}
+
+.btn-secondary:hover {
+  background-color: white;
+  color: var(--accent-color);
+}
+
+/* الأقسام */
+section {
+  padding: 3rem 0;
+  border-bottom: 1px solid var(--border-color);
+}
+
+section h2 {
+  font-size: 2.2rem;
+  margin-bottom: 1rem;
+  color: var(--accent-color);
+}
+
+section h2 span {
+  color: var(--accent-light);
+}
+
+section p {
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+  margin-bottom: 1rem;
+}
+
+/* شبكة الخدمات */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.service-card {
+  background-color: var(--bg-secondary);
+  padding: 2rem;
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
+  transition: all 0.3s ease;
+  box-shadow: var(--shadow);
+}
+
+.service-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--accent-color);
+}
+
+.service-card h3 {
+  font-size: 1.4rem;
+  margin-bottom: 1rem;
+  color: var(--accent-color);
+}
+
+.service-card p {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+}
+
+.service-icon {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+/* شبكة الفنانين */
+.artists-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.artist-card {
+  background-color: var(--bg-secondary);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  transition: all 0.3s ease;
+  border: 1px solid var(--border-color);
+}
+
+.artist-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+}
+
+.artist-image {
+  width: 100%;
+  height: 200px;
+  background: linear-gradient(135deg, var(--accent-color) 0%, #003d6b 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3rem;
+}
+
+.artist-info {
+  padding: 1.5rem;
+}
+
+.artist-name {
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: var(--accent-color);
+  margin-bottom: 0.5rem;
+}
+
+.artist-description {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+}
+
+.artist-link {
+  color: var(--accent-color);
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.artist-link:hover {
+  color: var(--accent-light);
+}
+
+/* نموذج الاتصال */
+.contact-form {
+  max-width: 600px;
+  margin: 2rem auto;
+  background-color: var(--bg-secondary);
+  padding: 2rem;
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
+  box-shadow: var(--shadow);
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: inherit;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--accent-color);
+  box-shadow: 0 0 0 3px rgba(0, 78, 137, 0.1);
+}
+
+.form-group textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+/* الإحصائيات */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.stat-item {
+  text-align: center;
+  padding: 1.5rem;
+  background-color: var(--bg-secondary);
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
+}
+
+.stat-number {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: var(--accent-color);
+  margin-bottom: 0.5rem;
+}
+
+.stat-label {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+}
+
+/* التذييل (Footer) */
+footer {
+  background-color: var(--bg-secondary);
+  border-top: 1px solid var(--border-color);
+  padding: 2rem 0;
+  margin-top: 3rem;
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.footer-section h3 {
+  color: var(--accent-color);
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+}
+
+.footer-section a {
+  display: block;
+  color: var(--text-secondary);
+  text-decoration: none;
+  margin-bottom: 0.5rem;
+  transition: color 0.3s ease;
+}
+
+.footer-section a:hover {
+  color: var(--accent-color);
+}
+
+.footer-bottom {
+  text-align: center;
+  padding-top: 2rem;
+  border-top: 1px solid var(--border-color);
+  color: var(--text-secondary);
+}
+
+/* الروابط الاجتماعية */
+.social-links {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 1rem;
+}
+
+.social-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background-color: var(--accent-color);
+  color: white;
+  border-radius: 50%;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  font-size: 1.2rem;
+}
+
+.social-link:hover {
+  background-color: var(--accent-light);
+  transform: translateY(-2px);
+}
+
+/* الاستجابة */
+@media (max-width: 768px) {
+  .header-container {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  nav {
+    flex-direction: column;
+    gap: 0.5rem;
+    width: 100%;
+  }
+
+  nav a {
+    width: 100%;
+    text-align: center;
+  }
+
+  .hero {
+    padding: 3rem 1rem;
+  }
+
+  .hero h1 {
+    font-size: 2rem;
+  }
+
+  .hero p {
+    font-size: 1rem;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+  }
+
+  .hero-buttons .btn {
+    width: 100%;
+  }
+
+  section h2 {
+    font-size: 1.8rem;
+  }
+
+  .services-grid,
+  .artists-grid,
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .container {
+    padding: 0 1rem;
   }
 }
 
-// تفعيل الوضع الليلي
-function enableDarkMode() {
-  document.body.classList.add('dark-mode');
-  localStorage.setItem('darkMode', 'true');
-  updateThemeToggleButton();
+/* الانتقالات السلسة */
+* {
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
 }
 
-// تعطيل الوضع الليلي
-function disableDarkMode() {
-  document.body.classList.remove('dark-mode');
-  localStorage.setItem('darkMode', 'false');
-  updateThemeToggleButton();
-}
-
-// تبديل الوضع الليلي
-function toggleDarkMode() {
-  if (document.body.classList.contains('dark-mode')) {
-    disableDarkMode();
-  } else {
-    enableDarkMode();
+/* الطباعة */
+@media print {
+  header,
+  footer,
+  .controls {
+    display: none;
   }
-}
-
-// تحديث نص زر التبديل
-function updateThemeToggleButton() {
-  const btn = document.getElementById('themeToggle');
-  if (btn) {
-    const isDark = document.body.classList.contains('dark-mode');
-    btn.textContent = isDark ? '☀️ وضع فاتح' : '🌙 وضع ليلي';
-    btn.title = isDark ? 'التبديل إلى الوضع الفاتح' : 'التبديل إلى الوضع الليلي';
-  }
-}
-
-// ============================================
-// إدارة اللغات (Language Support)
-// ============================================
-
-const translations = {
-  ar: {
-    'nav.home': 'الرئيسية',
-    'nav.services': 'الخدمات',
-    'nav.artists': 'الفنانون',
-    'nav.about': 'من نحن',
-    'nav.contact': 'اتصل بنا',
-    'hero.title': 'ZAHRAOUI PROD',
-    'hero.subtitle': 'منصة احترافية للتوزيع الموسيقي العالمي',
-    'hero.description': 'نساعد الفنانين والعلامات الموسيقية على توزيع أعمالهم عالمياً بكل احترافية',
-    'hero.btn1': 'اكتشف الخدمات',
-    'hero.btn2': 'تواصل معنا',
-    'about.title': 'من نحن',
-    'about.description': 'ZAHRAOUI PROD علامة مستقلة متخصصة في التوزيع الموسيقي والحقوق الرقمية',
-    'services.title': 'الخدمات المميزة',
-    'service.distribution': 'التوزيع الموسيقي العالمي',
-    'service.copyright': 'حماية حقوق النشر',
-    'service.youtube': 'YouTube Content ID',
-    'service.promotion': 'الترويج الموسيقي',
-    'service.management': 'إدارة الفنانين',
-    'service.publishing': 'النشر الموسيقي',
-    'artists.title': 'الفنانون المتميزون',
-    'contact.title': 'اتصل بنا',
-    'contact.name': 'الاسم',
-    'contact.email': 'البريد الإلكتروني',
-    'contact.message': 'الرسالة',
-    'contact.send': 'إرسال',
-    'footer.about': 'من نحن',
-    'footer.services': 'الخدمات',
-    'footer.contact': 'اتصل بنا',
-    'footer.social': 'تابعنا',
-    'footer.copyright': 'جميع الحقوق محفوظة © 2026 ZAHRAOUI PROD'
-  },
-  en: {
-    'nav.home': 'Home',
-    'nav.services': 'Services',
-    'nav.artists': 'Artists',
-    'nav.about': 'About',
-    'nav.contact': 'Contact',
-    'hero.title': 'ZAHRAOUI PROD',
-    'hero.subtitle': 'Professional Music Distribution Platform',
-    'hero.description': 'We help artists and music labels distribute their work globally with professionalism',
-    'hero.btn1': 'Discover Services',
-    'hero.btn2': 'Contact Us',
-    'about.title': 'About Us',
-    'about.description': 'ZAHRAOUI PROD is an independent label specializing in music distribution and digital rights',
-    'services.title': 'Featured Services',
-    'service.distribution': 'Global Music Distribution',
-    'service.copyright': 'Copyright Protection',
-    'service.youtube': 'YouTube Content ID',
-    'service.promotion': 'Music Promotion',
-    'service.management': 'Artist Management',
-    'service.publishing': 'Music Publishing',
-    'artists.title': 'Featured Artists',
-    'contact.title': 'Contact Us',
-    'contact.name': 'Name',
-    'contact.email': 'Email',
-    'contact.message': 'Message',
-    'contact.send': 'Send',
-    'footer.about': 'About',
-    'footer.services': 'Services',
-    'footer.contact': 'Contact',
-    'footer.social': 'Follow Us',
-    'footer.copyright': 'All rights reserved © 2026 ZAHRAOUI PROD'
-  }
-};
-
-// الحصول على اللغة المحفوظة
-function getCurrentLanguage() {
-  return localStorage.getItem('language') || 'ar';
-}
-
-// تعيين اللغة
-function setLanguage(lang) {
-  localStorage.setItem('language', lang);
-  document.documentElement.lang = lang;
-  document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
-  updatePageTranslations(lang);
-  updateLanguageToggleButton(lang);
-}
-
-// تحديث الترجمات في الصفحة
-function updatePageTranslations(lang) {
-  const elements = document.querySelectorAll('[data-i18n]');
-  elements.forEach(element => {
-    const key = element.getAttribute('data-i18n');
-    if (translations[lang] && translations[lang][key]) {
-      element.textContent = translations[lang][key];
-    }
-  });
-}
-
-// تحديث نص زر اللغة
-function updateLanguageToggleButton(lang) {
-  const btn = document.getElementById('languageToggle');
-  if (btn) {
-    btn.textContent = lang === 'ar' ? 'EN' : 'AR';
-    btn.title = lang === 'ar' ? 'Switch to English' : 'التبديل إلى العربية';
-  }
-}
-
-// تبديل اللغة
-function toggleLanguage() {
-  const currentLang = getCurrentLanguage();
-  const newLang = currentLang === 'ar' ? 'en' : 'ar';
-  setLanguage(newLang);
-}
-
-// ============================================
-// وظائف النموذج
-// ============================================
-
-function handleFormSubmit(e) {
-  e.preventDefault();
-  
-  const form = e.target;
-  const formData = new FormData(form);
-  
-  // التحقق من البيانات
-  const name = formData.get('name');
-  const email = formData.get('email');
-  const message = formData.get('message');
-  
-  if (!name || !email || !message) {
-    alert('يرجى ملء جميع الحقول');
-    return;
-  }
-  
-  // التحقق من صحة البريد الإلكتروني
-  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  if (!emailRegex.test(email)) {
-    alert('يرجى إدخال بريد إلكتروني صحيح');
-    return;
-  }
-  
-  // محاكاة إرسال النموذج
-  console.log('Form Data:', { name, email, message });
-  alert('تم إرسال رسالتك بنجاح! شكراً لتواصلك معنا.');
-  form.reset();
-}
-
-// ============================================
-// وظائف التنقل
-// ============================================
-
-function smoothScroll(target) {
-  const element = document.querySelector(target);
-  if (element) {
-    element.scrollIntoView({ behavior: 'smooth' });
-  }
-}
-
-// ============================================
-// التهيئة عند تحميل الصفحة
-// ============================================
-
-document.addEventListener('DOMContentLoaded', function() {
-  // تهيئة الوضع الليلي
-  initDarkMode();
-  
-  // تهيئة اللغة
-  const currentLang = getCurrentLanguage();
-  setLanguage(currentLang);
-  
-  // إضافة مستمعي الأحداث للأزرار
-  const themeToggle = document.getElementById('themeToggle');
-  if (themeToggle) {
-    themeToggle.addEventListener('click', toggleDarkMode);
-  }
-  
-  const languageToggle = document.getElementById('languageToggle');
-  if (languageToggle) {
-    languageToggle.addEventListener('click', toggleLanguage);
-  }
-  
-  // إضافة مستمع الأحداث لنموذج الاتصال
-  const contactForm = document.getElementById('contactForm');
-  if (contactForm) {
-    contactForm.addEventListener('submit', handleFormSubmit);
-  }
-  
-  // إضافة مستمعي الأحداث للروابط الناعمة
-  const smoothScrollLinks = document.querySelectorAll('a[href^="#"]');
-  smoothScrollLinks.forEach(link => {
-    link.addEventListener('click', function(e) {
-      e.preventDefault();
-      const target = this.getAttribute('href');
-      smoothScroll(target);
-    });
-  });
-  
-  // تحديث زر التبديل
-  updateThemeToggleButton();
-});
-
-// ============================================
-// وظائف إضافية
-// ============================================
-
-// إضافة تأثير عند التمرير
-window.addEventListener('scroll', function() {
-  const header = document.querySelector('header');
-  if (header) {
-    if (window.scrollY > 50) {
-      header.style.boxShadow = 'var(--shadow-lg)';
-    } else {
-      header.style.boxShadow = 'var(--shadow)';
-    }
-  }
-});
-
-// دعم الاستجابة للتغييرات في تفضيل النظام
-window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
-  if (localStorage.getItem('darkMode') === null) {
-    if (e.matches) {
-      enableDarkMode();
-    } else {
-      disableDarkMode();
-    }
-  }
-});
-
-// تصدير الوظائف للاستخدام الخارجي
-if (typeof module !== 'undefined' && module.exports) {
-  module.exports = {
-    toggleDarkMode,
-    toggleLanguage,
-    setLanguage,
-    getCurrentLanguage,
-    handleFormSubmit,
-    smoothScroll
-  };
 }
