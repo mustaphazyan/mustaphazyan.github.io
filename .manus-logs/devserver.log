@@ -1,0 +1,14 @@
+[2026-05-10T00:04:49.874Z] Starting dev server with command: pnpm run dev
+[2026-05-10T00:04:51.885Z] 
+[2026-05-10T00:04:51.886Z] > zahraoui-prod-website@1.0.0 dev /home/ubuntu/zahraoui-prod-website
+[2026-05-10T00:04:51.886Z] > vite --host
+[2026-05-10T00:04:51.887Z] 
+[2026-05-10T00:04:52.386Z] 
+[2026-05-10T00:04:52.387Z] VITE v7.1.9  ready in 467 ms
+[2026-05-10T00:04:52.387Z] 
+[2026-05-10T00:04:52.387Z] ➜  Local:   http://localhost:3000/
+[2026-05-10T00:04:52.388Z] ➜  Network: http://169.254.0.21:3000/
+[2026-05-10T00:05:25.603Z] 8:05:25 PM [vite] (client) page reload index.html
+[2026-05-10T00:05:32.163Z] 8:05:32 PM [vite] (client) page reload index.html
+[2026-05-10T00:07:00.176Z] [baseline-browser-mapping] The data in this module is over two months old.  To ensure accurate Baseline data, please update: `npm i baseline-browser-mapping@latest -D`
+[2026-05-10T00:07:01.544Z] 8:07:01 PM [vite] (client) hmr update /src/App.tsx, /src/index.css
